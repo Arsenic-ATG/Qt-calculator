@@ -1,5 +1,5 @@
 # Qt-calculator
-A simple GUI calculator build Qt
+A simple GUI calculator build using widget library of C++ that is Qt
 
 ## screen shots
 ```
