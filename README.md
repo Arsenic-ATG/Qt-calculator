@@ -11,7 +11,7 @@ this screen shot is taken on Mac OS, result might be different in windows(as it 
 **Qt creator** or **Qmake** build system set up in your IDE
 
 ### Setting up Qt 💻
-* Start by installing the Qt SDK from (qt.io)[https://www.qt.io/download]. I decided to go with the Open Source version
+* Start by installing the Qt SDK from [qt.io](https://www.qt.io/download). I decided to go with the Open Source version
 * Qt Creator is a sort of an IDE with internal build tools. So currently, it's a good idea to install this.
 * We will not be using CMake since QMake comes bundled with the creator
 
