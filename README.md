@@ -17,5 +17,5 @@ this screen shot is taken on Mac OS, result might be different in windows(as it 
 
 ### Get it running 🏃‍♂️
 * clone/download the repository
-* Open it using Qt Creator (skip this step if you have set up your ide accordingly)
+* Open **Calculator.pro** file using Qt Creator (skip this step if you have set up your ide accordingly)
 * Build it using **Qmake** instead of Cmake
