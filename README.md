@@ -21,7 +21,7 @@ A simple GUI calculator build using widget library of C++ that is Qt
 * We will not be using CMake since QMake comes bundled with the creator
 
 ## Contributing
-Please read [CONTRIBUTING.md](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/CONTRIBUTING.md) for details on the process for submitting pull requests to the repo.
+Please read [CONTRIBUTING.md](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/CONTRIBUTING.md) for details on the code of conduct and process for submitting pull requests to the repo.
 
 ### Get it running 🏃‍♂️
 1. Set up Qt (if already done then skip this step)
