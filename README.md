@@ -20,7 +20,22 @@ A simple GUI calculator build using widget library of C++ that is Qt
 * Qt Creator is a sort of an IDE with internal build tools. So currently, it's a good idea to install this.
 * We will not be using CMake since QMake comes bundled with the creator
 
+## Contributing
+Please read [CONTRIBUTING.md](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/CONTRIBUTING.md) for details on the process for submitting pull requests to the repo.
+
 ### Get it running 🏃‍♂️
-* clone/download the repository
-* Open **Calculator.pro** file using Qt Creator (skip this step if you have set up your ide accordingly)
-* Build it using **Qmake** instead of Cmake
+1. Set up Qt (if already done then skip this step)
+   - Start by download and installing the Qt SDK from [qt.io](https://www.qt.io/download). I decided to go with the Open Source version
+   - Qt Creator is a sort of an IDE with internal build tools. So currently, it's a good idea to install this.
+   - We will not be using CMake since QMake comes bundled with the creator
+
+2. clone/download the repository
+
+3. Open ```QtCalculator => calculator.pro``` using Qt creator
+
+4. Once inside Qt creator click on ```configure Project``` options (it will configure the project according to your device) 👇
+
+![main screen](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/instructions.png)
+
+5. Just make sure that you're using **Qmake** build system instead of Cmake
+
