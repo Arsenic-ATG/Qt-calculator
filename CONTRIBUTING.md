@@ -1,21 +1,19 @@
-# How to contribute ? 
+# Things to consider while contributing
 
-1. Set up Qt (if already done then skip this step)
-   - Start by download and installing the Qt SDK from [qt.io](https://www.qt.io/download). I decided to go with the Open Source version
-   - Qt Creator is a sort of an IDE with internal build tools. So currently, it's a good idea to install this.
-   - We will not be using CMake since QMake comes bundled with the creator
+When contributing to this repository, please first discuss the change you wish to make via ```issue```
 
-2. clone/download the repository
+## Pull Request Process
 
-3. Open ```QtCalculator => calculator.pro``` using Qt creator
-
-4. Once inside Qt creator click on ```configure Project``` options (it will configure the project according to your device) 👇
-
-![main screen](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/instructions.png)
-
-5. that's it you are good to go 👍
+1. Ensure any install or build dependencies are removed before the end of the layer when doing a 
+   build.
+2. Update the README.md with details of changes to the interface, this includes new environment 
+   variables, exposed ports, useful file locations and container parameters.
+3. Increase the version numbers in any examples files and the README.md to the new version that this
+   Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
+4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
+   do not have permission to do that, you may request the second reviewer to merge it for you.
 
 ## ⚠️WARNING⚠️
 do not include any ```.pro.user``` file while uploading your file (It contain the stuff your system added to configure the project according to your device)
-repository should be clean and should only contain usefull information
+repository should be clean and should not contain any unnecessary files/information.
   
