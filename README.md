@@ -4,7 +4,7 @@ A simple GUI calculator build using widget library of C++ that is Qt
 ## screen shots 📸
 ```
 - this screen shot is taken on Mac OS, result might be different in windows(as it uses different API)
-- also theme of the calculator(light/dark) will also match on your system's theme
+- also theme of the calculator(light/dark) will also match with your system's theme
 ```
 - light mode<br />
 ![alt text](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/Screenshot%202020-06-28%20at%201.57.39%20PM.png)
