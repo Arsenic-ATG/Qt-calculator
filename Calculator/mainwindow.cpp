@@ -75,8 +75,15 @@ void MainWindow::digit_pressed()
 
 void MainWindow::on_pushButton_dot_released()
 {
+
+    // check for appearance of decimal, exit function if there is one
+    if(ui->label->text().contains(".")){
+
+            return;
+
+}
     ui->label->setText(ui->label->text() + ".");
-    //check for extra decimal
+
 }
 
 void MainWindow::unary_operation_pressed()
