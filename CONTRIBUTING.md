@@ -30,3 +30,5 @@ advances
   address, without explicit permission
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
+
+for more information about our code of conduct visit [code_of_conduct.md](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/CODE_OF_CONDUCT.md)
