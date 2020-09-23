@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_multiply->setCheckable(true);
     ui->pushButton_divide->setCheckable(true);
     ui->pushButton_minus->setCheckable(true);
-    setFixedSize(241,366);
+    setFixedSize( 241,366);
 }
 
 MainWindow::~MainWindow()
@@ -75,15 +75,13 @@ void MainWindow::digit_pressed()
 
 void MainWindow::on_pushButton_dot_released()
 {
-
     // check for appearance of decimal, exit function if there is one
-    if(ui->label->text().contains(".")){
+         if(ui->label->text().contains(".")){
 
-            return;
-
-}
+                 return;
+         }
     ui->label->setText(ui->label->text() + ".");
-
+    //check for extra decimal
 }
 
 void MainWindow::unary_operation_pressed()
