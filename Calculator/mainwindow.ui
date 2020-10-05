@@ -17,10 +17,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>241</width>
-      <height>61</height>
+      <x>10</x>
+      <y>20</y>
+      <width>211</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -42,10 +42,10 @@ background-color : white;
    <widget class="QPushButton" name="pushButton_clear">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>60</y>
-      <width>61</width>
-      <height>61</height>
+      <x>20</x>
+      <y>100</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -83,10 +83,10 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_plusMinus">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>60</y>
-      <width>61</width>
-      <height>61</height>
+      <x>70</x>
+      <y>100</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -125,9 +125,9 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>60</y>
-      <width>61</width>
-      <height>61</height>
+      <y>100</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -166,9 +166,9 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>60</y>
-      <width>61</width>
-      <height>61</height>
+      <y>100</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -207,9 +207,9 @@ QPushButton:pressed {
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>120</y>
-      <width>61</width>
-      <height>61</height>
+      <y>150</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -247,10 +247,10 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>120</y>
-      <width>61</width>
-      <height>61</height>
+      <x>70</x>
+      <y>150</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -289,9 +289,9 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>120</y>
-      <width>61</width>
-      <height>61</height>
+      <y>150</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -329,10 +329,10 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_1">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>120</y>
-      <width>61</width>
-      <height>61</height>
+      <x>20</x>
+      <y>150</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -371,9 +371,9 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>180</y>
-      <width>61</width>
-      <height>61</height>
+      <y>200</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -412,10 +412,10 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
    <widget class="QPushButton" name="pushButton_5">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>180</y>
-      <width>61</width>
-      <height>61</height>
+      <x>70</x>
+      <y>200</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -454,9 +454,9 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>180</y>
-      <width>61</width>
-      <height>61</height>
+      <y>200</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -494,10 +494,10 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>180</y>
-      <width>61</width>
-      <height>61</height>
+      <x>20</x>
+      <y>200</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -536,9 +536,9 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>240</y>
-      <width>61</width>
-      <height>61</height>
+      <y>250</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -577,10 +577,10 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
    <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>240</y>
-      <width>61</width>
-      <height>61</height>
+      <x>70</x>
+      <y>250</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -619,9 +619,9 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
     <property name="geometry">
      <rect>
       <x>180</x>
-      <y>240</y>
-      <width>61</width>
-      <height>61</height>
+      <y>250</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -659,10 +659,10 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>240</y>
-      <width>61</width>
-      <height>61</height>
+      <x>20</x>
+      <y>250</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -702,8 +702,8 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
      <rect>
       <x>120</x>
       <y>300</y>
-      <width>61</width>
-      <height>61</height>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -741,10 +741,10 @@ QPushButton:pressed {
    <widget class="QPushButton" name="pushButton_0">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>20</x>
       <y>300</y>
-      <width>121</width>
-      <height>61</height>
+      <width>91</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -784,8 +784,8 @@ radius: 1.35, stop: 0 #fff, stop: 1 #ddd
      <rect>
       <x>180</x>
       <y>300</y>
-      <width>61</width>
-      <height>61</height>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
