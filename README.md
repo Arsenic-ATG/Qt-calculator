@@ -3,8 +3,8 @@ A simple GUI calculator build using widget library of C++ that is Qt
 
 ## screen shots 📸
 ```
-- this screen shot is taken on Mac OS, result might be different in windows(as it uses different API)
-- also theme of the calculator(light/dark) will also match with your system's theme
+- These screen shots were taken on Mac OS, result might varry according to your Operating System
+- Also theme of the calculator(light/dark) will match with your system's theme
 ```
 <details><summary>light mode</summary>
    
