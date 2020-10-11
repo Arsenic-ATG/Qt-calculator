@@ -7,7 +7,7 @@ A simple GUI calculator build using widget library of C++ that is Qt
 - also theme of the calculator(light/dark) will also match with your system's theme
 ```
 - light mode<br />
-![alt text](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/rounded%20corners%20light.png)
+![alt text](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/new-user-interface.png)
 
 - dark mode<br />
 ![alt text](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/rounded%20corner%20theme.png)
