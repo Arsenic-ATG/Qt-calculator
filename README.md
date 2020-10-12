@@ -6,13 +6,13 @@ A simple GUI calculator build using widget library of C++ that is Qt
 - These screen shots were taken on Mac OS, result might varry according to your Operating System
 - Also theme of the calculator(light/dark) will match with your system's theme
 ```
-<details><summary>light mode</summary>
+<details><summary>Light mode</summary>
    
 ![light mode screenshot](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/vivek's%20interface(light).png)
 
 </details>
 
-<details><summary>dark mode</summary>
+<details><summary>Dark mode</summary>
    
 ![Dark mode screenshot](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/vivek's%20interface(dark).png)
 
