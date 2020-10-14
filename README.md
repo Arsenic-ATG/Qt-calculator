@@ -43,8 +43,6 @@ Please read [CONTRIBUTING.md](https://github.com/Arsenic-ATG/Qt-calculator/blob/
 
 ![main screen](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/instructions.png)
 
-5. Just make sure that you're using **Qmake** build system instead of Cmake
-
 ---
 
 ## License
