@@ -51,3 +51,13 @@ Please read [CONTRIBUTING.md](https://github.com/Arsenic-ATG/Qt-calculator/blob/
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
 - Copyright 2020 © <a href="https://github.com/Arsenic-ATG" target="_blank">Ankur Saini</a>.
+
+---
+
+##Contributor v.1
+Paiz0: I wanted to make a matrix-esque look to the QT calculator that focused on a green on black look. 
+In the mainwindow.UI file:
+	I changed the unary buttons to have a black background-color, a green border, and a green operator.
+		To better distinguish the equals button, I made the border red instead of green. 
+	I changed the numeric buttons to have a black background-color, teal border, and teal number.
+	I changed the background-color of the calculator to a dark gray to blend with the buttons and give a dark mode theme.
