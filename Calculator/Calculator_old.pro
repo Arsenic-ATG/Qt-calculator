@@ -20,7 +20,7 @@ MOC_DIR = $$DESTDIR
 RCC_DIR = $$DESTDIR
 UI_DIR = $$DESTDIR
 OBJECTS_DIR = $$DESTDIR
-TARGET = Calculator
+TARGET = Calculator_old
 
 SOURCES += \
     ./source/main.cpp \
@@ -30,7 +30,7 @@ HEADERS += \
     ./include/mainwindow.h
 
 FORMS += \
-    ./ui/latest/mainwindow.ui
+    ./ui/old/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
