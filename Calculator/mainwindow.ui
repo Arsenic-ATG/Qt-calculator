@@ -208,6 +208,9 @@ QPushButton:pressed {
     <property name="text">
      <string>÷</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
@@ -331,6 +334,9 @@ QPushButton:pressed {
     <property name="text">
      <string>x</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="pushButton_1">
     <property name="geometry">
@@ -497,6 +503,9 @@ QPushButton:pressed {
     <property name="text">
      <string>-</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
@@ -662,6 +671,9 @@ QPushButton:pressed {
     <property name="text">
      <string>+</string>
     </property>
+    <attribute name="buttonGroup">
+     <string notr="true">buttonGroup</string>
+    </attribute>
    </widget>
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
@@ -831,4 +843,11 @@ QPushButton:pressed {
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup">
+   <property name="exclusive">
+    <bool>true</bool>
+   </property>
+  </buttongroup>
+ </buttongroups>
 </ui>
