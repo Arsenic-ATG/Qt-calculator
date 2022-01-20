@@ -1,9 +1,9 @@
 # Qt-calculator 
-A simple GUI calculator build using widget library of C++ that is Qt
+A simple GUI calculator build using C++ Qt widget library
 
 ## screen shots 📸
 ```
-- These screen shots were taken on Mac OS, result might varry according to your Operating System
+- These screen shots were taken on Mac OS, result might vary according to your Operating System
 - Also theme of the calculator(light/dark) will match with your system's theme
 ```
 <details><summary>Light mode</summary>
