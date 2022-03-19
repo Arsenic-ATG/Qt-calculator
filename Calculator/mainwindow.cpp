@@ -118,6 +118,8 @@ void MainWindow::on_pushButton_clear_released()
     user_is_typing_secondNumber=false;
 
     ui->label->setText("0");
+    //Updating the equation label
+    ui->label_2->setText("0");
 }
 
 void MainWindow::on_pushButton_equals_released()
@@ -125,33 +127,38 @@ void MainWindow::on_pushButton_equals_released()
     double labelnumber,secondNum;
     QString input;
     labelnumber=0;
-
+    QString symbol;
     secondNum = ui->label->text().toDouble();
 
     if(ui->pushButton_add->isChecked())
     {
         labelnumber = firstNum + secondNum;
         ui->pushButton_add->setChecked(false);
+        symbol = " + ";
     }
 
     else if(ui->pushButton_minus->isChecked())
     {
         labelnumber = firstNum - secondNum;
         ui->pushButton_minus->setChecked(false);
+        symbol = " - ";
     }
 
     else if(ui->pushButton_multiply->isChecked())
     {
         labelnumber = firstNum * secondNum;
         ui->pushButton_multiply->setChecked(false);
+        symbol = " x ";
     }
 
     else if(ui->pushButton_divide->isChecked())
     {
         labelnumber = firstNum / secondNum;
         ui->pushButton_divide->setChecked(false);
+        symbol = " / ";
     }
-
+    // Setting the equation label
+    ui->label_2->setText(QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15));
     input = QString::number(labelnumber,'g',15);
     ui->label->setText(input);
 
