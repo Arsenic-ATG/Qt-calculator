@@ -34,7 +34,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_multiply->setCheckable(true);
     ui->pushButton_divide->setCheckable(true);
     ui->pushButton_minus->setCheckable(true);
-    setFixedSize( 241,366);
 }
 
 MainWindow::~MainWindow()
