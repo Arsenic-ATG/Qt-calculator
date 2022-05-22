@@ -4,19 +4,9 @@ A simple GUI calculator build using C++ Qt widget library
 ## screen shots 📸
 ```
 - These screen shots were taken on Mac OS, result might vary according to your Operating System
-- Also theme of the calculator(light/dark) will match with your system's theme
 ```
-<details><summary>Light mode</summary>
-   
-![light mode screenshot](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/vivek's%20interface(light).png)
 
-</details>
-
-<details><summary>Dark mode</summary>
-   
-![Dark mode screenshot](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/screenshots/vivek's%20interface(dark).png)
-
-</details>
+![light mode screenshot](https://github.com/Arsenic-ATG/Qt-calculator/blob/theme_patch/screenshots/calculator%20(22-may-2022).png)
 
 ### requirements ✅
 **Qt creator** or **Qmake** build system set up in your IDE
