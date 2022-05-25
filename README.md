@@ -6,7 +6,7 @@ A simple GUI calculator build using C++ Qt widget library
 - These screen shots were taken on Mac OS, result might vary according to your Operating System
 ```
 
-![light mode screenshot](https://github.com/Arsenic-ATG/Qt-calculator/blob/theme_patch/screenshots/calculator%20(22-may-2022).png)
+![light mode screenshot](./screenshots/calculator%20(22-may-2022).png)
 
 ### requirements ✅
 **Qt creator** or **Qmake** build system set up in your IDE
