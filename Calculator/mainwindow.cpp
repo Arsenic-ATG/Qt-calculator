@@ -105,7 +105,7 @@ void MainWindow::unary_operation_pressed()
         ui->label->setText(input);
     }
 
-    //error correction codse is still missing
+    //error correction code is still missing
 }
 
 void MainWindow::on_pushButton_clear_released()
@@ -174,3 +174,9 @@ void MainWindow::binary_operation_pressed()
     button->setChecked(true);
 
 }
+
+void MainWindow::on_actionExit_triggered()
+{
+    QApplication::quit();
+}
+

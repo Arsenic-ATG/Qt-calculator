@@ -26,5 +26,6 @@ private slots:
     void on_pushButton_clear_released();
     void on_pushButton_equals_released();
     void binary_operation_pressed();
+    void on_actionExit_triggered();
 };
 #endif // MAINWINDOW_H
