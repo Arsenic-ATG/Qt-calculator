@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_multiply->setCheckable(true);
     ui->pushButton_divide->setCheckable(true);
     ui->pushButton_minus->setCheckable(true);
+
 }
 
 MainWindow::~MainWindow()
@@ -172,7 +173,7 @@ void MainWindow::binary_operation_pressed()
 
     firstNum = ui->label->text().toDouble();
     button->setChecked(true);
-
+    user_is_typing_secondNumber=false;
 }
 
 void MainWindow::on_actionExit_triggered()
