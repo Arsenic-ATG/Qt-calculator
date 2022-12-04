@@ -219,7 +219,8 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
 QPushButton {
   color: #000;
   background-color: rgb(215, 215, 215);
-  border-radius: 4px;
+  border-radius: 24px;
+  border-style : outset
   padding: 10px;
 }
 
@@ -257,7 +258,8 @@ QPushButton:pressed {
 QPushButton {
   color: #000;
   background-color: rgb(215, 215, 215);
-  border-radius: 4px;
+  border-radius: 24px;
+  border-style : outset
   padding: 10px;
 }
 
@@ -296,7 +298,9 @@ QPushButton:pressed {
          <string notr="true">QPushButton {
 color: rgb(134,134,140);
 background-color: rgb(239,239,239);
-border-radius: 4px;
+
+border-radius: 24px;
+border-style : outset
 padding: 10px;
 }
 
@@ -490,10 +494,12 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
+         <string notr="true">
+         QPushButton {
 color: rgb(134,134,140);
 background-color: rgb(239,239,239);
-border-radius: 4px;
+border-radius: 24px;
+border-style : outset
 padding: 10px;
 }
 
@@ -593,7 +599,8 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
 QPushButton {
   color: #FFF;
   background-color: rgb(38, 196, 111);
-  border-radius: 4px;
+  border-radius: 24px;
+  border-style : outset
   padding: 10px;
 }
 
@@ -634,7 +641,8 @@ QPushButton:pressed {
 QPushButton {
   color: #FFF;
   background-color: rgb(196, 56, 227);
-  border-radius: 4px;
+  border-radius: 24px;
+  border-style : outset;
   padding: 10px;
 }
 
@@ -676,7 +684,8 @@ QPushButton:pressed {
 QPushButton {
   color: #FFF;
   background-color: rgb(241, 122, 28);
-  border-radius: 4px;
+  border-radius: 24px;
+  border-style : outset
   padding: 10px;
 }
 
@@ -723,7 +732,8 @@ QPushButton:pressed {
 QPushButton {
   color: #FFF;
   background-color: rgb(239, 92, 98);
-  border-radius: 4px;
+  border-radius: 24px;
+  border-style : outset
   padding: 10px;
 }
 
@@ -759,7 +769,8 @@ QPushButton:pressed {
          <string notr="true">QPushButton {
 color: rgb(134,134,140);
 background-color: rgb(239,239,239);
-border-radius: 4px;
+border-radius: 24px;
+border-style : outset
 padding: 10px;
 }
 
@@ -967,7 +978,8 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
          <string notr="true">QPushButton {
 color: rgb(134,134,140);
 background-color: rgb(239,239,239);
-border-radius: 4px;
+border-radius: 24px;
+border-style : outset
 padding: 10px;
 }
 
@@ -1014,7 +1026,8 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
 
 QPushButton {
   background-color: rgb(254,99,71);
-  border-radius: 4px;
+  border-radius: 24px;
+  border-style : outset
   padding: 5px;
 }
 
