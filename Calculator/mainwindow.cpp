@@ -158,7 +158,7 @@ void MainWindow::on_pushButton_equals_released()
         symbol = " / ";
     }
     // Setting the equation label
-    ui->label_2->setText(QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15));
+    ui->label_2->setText(QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15) + " = ");
     input = QString::number(labelnumber,'g',15);
     ui->label->setText(input);
 
@@ -174,6 +174,26 @@ void MainWindow::binary_operation_pressed()
     firstNum = ui->label->text().toDouble();
     button->setChecked(true);
     user_is_typing_secondNumber=false;
+
+    if(ui->pushButton_add->isChecked())
+    {
+        ui->label_2->setText(ui->label->text() + " + ");
+    }
+
+    else if(ui->pushButton_minus->isChecked())
+    {
+        ui->label_2->setText(ui->label->text() + " - ");
+    }
+
+    else if(ui->pushButton_multiply->isChecked())
+    {
+        ui->label_2->setText(ui->label->text() + " x ");
+    }
+
+    else if(ui->pushButton_divide->isChecked())
+    {
+        ui->label_2->setText(ui->label->text() + " / ");
+    }
 }
 
 void MainWindow::on_actionExit_triggered()
