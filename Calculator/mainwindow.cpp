@@ -31,11 +31,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_minus,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
     connect(ui->pushButton_divide,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
     connect(ui->pushButton_Log,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
-
+    connect(ui->pushButton_Power,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
     ui->pushButton_add->setCheckable(true);
     ui->pushButton_multiply->setCheckable(true);
     ui->pushButton_divide->setCheckable(true);
     ui->pushButton_minus->setCheckable(true);
+    ui->pushButton_Power->setCheckable(true);
+    ui->pushButton_Log->setCheckable(true);
 
 }
 
@@ -51,7 +53,7 @@ void MainWindow::digit_pressed()
     QString input;
     double labelnumber;
 
-    if((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked()) && (!user_is_typing_secondNumber))
+    if((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked() || ui->pushButton_Power->isChecked()) && (!user_is_typing_secondNumber))
     {
         user_is_typing_secondNumber=true;
         labelnumber = button->text().toDouble();
@@ -131,6 +133,7 @@ void MainWindow::on_pushButton_clear_released()
     ui->pushButton_minus->setChecked(false);
     ui->pushButton_multiply->setChecked(false);
     ui->pushButton_divide->setChecked(false);
+    ui->pushButton_Power->setChecked(false);
     user_is_typing_secondNumber=false;
 
     ui->label->setText("0");
@@ -177,6 +180,14 @@ void MainWindow::on_pushButton_equals_released()
         ui->pushButton_divide->setChecked(false);
         symbol = " / ";
     }
+
+    else if(ui->pushButton_Power->isChecked())
+    {
+
+        labelnumber = pow(firstNum,secondNum);
+        ui->pushButton_Power->setChecked(false);
+        symbol = " ^ ";
+    }
     // Setting the equation label
     ui->label_2->setText(QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15) + " = ");
     input = QString::number(labelnumber,'g',15);
@@ -214,6 +225,10 @@ void MainWindow::binary_operation_pressed()
     else if(ui->pushButton_divide->isChecked())
     {
         ui->label_2->setText(ui->label->text() + " / ");
+    }
+    else if(ui->pushButton_Power->isChecked())
+    {
+        ui->label_2->setText(ui->label->text() + " ^ ");
     }
 }
 
