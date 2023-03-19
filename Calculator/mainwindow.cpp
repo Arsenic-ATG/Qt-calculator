@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QDebug>
-
+#include <iostream>
 double firstNum;
 bool user_is_typing_secondNumber=false;
 
@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->Error_Label->setStyleSheet("QLabel {color : red;}");
 
     connect(ui->pushButton_0,SIGNAL(released()),this,SLOT(digit_pressed()));
     connect(ui->pushButton_1,SIGNAL(released()),this,SLOT(digit_pressed()));
@@ -29,11 +30,14 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_add,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
     connect(ui->pushButton_minus,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
     connect(ui->pushButton_divide,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
-
+    connect(ui->pushButton_Log,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
+    connect(ui->pushButton_Power,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
     ui->pushButton_add->setCheckable(true);
     ui->pushButton_multiply->setCheckable(true);
     ui->pushButton_divide->setCheckable(true);
     ui->pushButton_minus->setCheckable(true);
+    ui->pushButton_Power->setCheckable(true);
+    ui->pushButton_Log->setCheckable(true);
 
 }
 
@@ -49,7 +53,7 @@ void MainWindow::digit_pressed()
     QString input;
     double labelnumber;
 
-    if((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked()) && (!user_is_typing_secondNumber))
+    if((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked() || ui->pushButton_Power->isChecked()) && (!user_is_typing_secondNumber))
     {
         user_is_typing_secondNumber=true;
         labelnumber = button->text().toDouble();
@@ -89,6 +93,7 @@ void MainWindow::unary_operation_pressed()
     QPushButton* button = (QPushButton *)sender();
     double labelnumber;
     QString input;
+    ui->Error_Label->setText("");
 
     if(button->text() == "+/-")
     {
@@ -106,15 +111,29 @@ void MainWindow::unary_operation_pressed()
         ui->label->setText(input);
     }
 
+    else if(button->text()=="Log"){
+        if((ui->label->text().toDouble())<=0){
+            ui->Error_Label->setText("Error message: Log input cant be less then 0");
+        }
+        else{
+            labelnumber = (ui->label->text()).toDouble();
+            labelnumber=log10(labelnumber);
+            input = QString::number(labelnumber,'g',15);
+            ui->label->setText(input);
+        }
+    }
+
     //error correction code is still missing
 }
 
 void MainWindow::on_pushButton_clear_released()
 {
+    ui->Error_Label->setText("");
     ui->pushButton_add->setChecked(false);
     ui->pushButton_minus->setChecked(false);
     ui->pushButton_multiply->setChecked(false);
     ui->pushButton_divide->setChecked(false);
+    ui->pushButton_Power->setChecked(false);
     user_is_typing_secondNumber=false;
 
     ui->label->setText("0");
@@ -124,6 +143,7 @@ void MainWindow::on_pushButton_clear_released()
 
 void MainWindow::on_pushButton_equals_released()
 {
+
     double labelnumber,secondNum;
     QString input;
     labelnumber=0;
@@ -153,9 +173,20 @@ void MainWindow::on_pushButton_equals_released()
 
     else if(ui->pushButton_divide->isChecked())
     {
+        if(secondNum==0){
+            ui->Error_Label->setText("Error message: cannot divide by 0");
+        }
         labelnumber = firstNum / secondNum;
         ui->pushButton_divide->setChecked(false);
         symbol = " / ";
+    }
+
+    else if(ui->pushButton_Power->isChecked())
+    {
+
+        labelnumber = pow(firstNum,secondNum);
+        ui->pushButton_Power->setChecked(false);
+        symbol = " ^ ";
     }
     // Setting the equation label
     ui->label_2->setText(QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15) + " = ");
@@ -167,6 +198,7 @@ void MainWindow::on_pushButton_equals_released()
 
 void MainWindow::binary_operation_pressed()
 {
+    ui->Error_Label->setText("");
     QPushButton* button = (QPushButton *)sender();
     //double labelnumber;
     //QString input;
@@ -193,6 +225,10 @@ void MainWindow::binary_operation_pressed()
     else if(ui->pushButton_divide->isChecked())
     {
         ui->label_2->setText(ui->label->text() + " / ");
+    }
+    else if(ui->pushButton_Power->isChecked())
+    {
+        ui->label_2->setText(ui->label->text() + " ^ ");
     }
 }
 
