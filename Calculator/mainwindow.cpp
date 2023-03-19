@@ -158,9 +158,11 @@ void MainWindow::on_pushButton_equals_released()
             if(secondNum==0){
                 ui->Error_Label->setText("Error message: cannot divide by 0");
             }
+            else{
             labelnumber = firstNum / secondNum;
             ui->pushButton_divide->setChecked(false);
             symbol = " / ";
+            }
         }
 
         else if(ui->pushButton_Power->isChecked())
