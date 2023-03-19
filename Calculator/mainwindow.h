@@ -18,9 +18,10 @@ public:
 private:
     Ui::MainWindow *ui;
 
-private slots:
-    void digit_pressed();
 
+private slots:
+    double factorial(int labelnumber);
+    void digit_pressed();
     void on_pushButton_dot_released();
     void unary_operation_pressed();
     void on_pushButton_clear_released();
