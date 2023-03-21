@@ -12,28 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->Error_Label->setStyleSheet("QLabel {color : red;}");
 
-    connect(ui->pushButton_0,SIGNAL(released()),this,SLOT(digit_pressed()));
-    connect(ui->pushButton_1,SIGNAL(released()),this,SLOT(digit_pressed()));
-    connect(ui->pushButton_2,SIGNAL(released()),this,SLOT(digit_pressed()));
-    connect(ui->pushButton_3,SIGNAL(released()),this,SLOT(digit_pressed()));
-    connect(ui->pushButton_4,SIGNAL(released()),this,SLOT(digit_pressed()));
-    connect(ui->pushButton_5,SIGNAL(released()),this,SLOT(digit_pressed()));
-    connect(ui->pushButton_6,SIGNAL(released()),this,SLOT(digit_pressed()));
-    connect(ui->pushButton_7,SIGNAL(released()),this,SLOT(digit_pressed()));
-    connect(ui->pushButton_8,SIGNAL(released()),this,SLOT(digit_pressed()));
-    connect(ui->pushButton_9,SIGNAL(released()),this,SLOT(digit_pressed()));
-
-    connect(ui->pushButton_plusMinus,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
-    connect(ui->pushButton_percent,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
-
-    connect(ui->pushButton_multiply,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
-    connect(ui->pushButton_add,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
-    connect(ui->pushButton_minus,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
-    connect(ui->pushButton_divide,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
-    connect(ui->pushButton_Log,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
-    connect(ui->pushButton_Power,SIGNAL(released()),this,SLOT(binary_operation_pressed()));
-    connect(ui->pushButton_Sqrt,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
-    connect(ui->pushButton_Factorial,SIGNAL(released()),this,SLOT(unary_operation_pressed()));
+    connect_buttons(ui,this);
 
     ui->pushButton_add->setCheckable(true);
     ui->pushButton_multiply->setCheckable(true);
@@ -42,6 +21,44 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_Power->setCheckable(true);
     ui->pushButton_Log->setCheckable(true);
 
+}
+
+void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window){
+    MainWindow::connect_digits(ui,window);
+    MainWindow::connect_unary(ui,window);
+    MainWindow::connect_binary(ui,window);
+}
+
+
+void MainWindow::connect_digits(Ui::MainWindow * ui,MainWindow * window){
+    QObject::connect(ui->pushButton_0,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_1,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_2,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_3,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_4,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_5,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_6,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_7,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_8,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_9,SIGNAL(released()),window,SLOT(digit_pressed()));
+}
+
+
+void MainWindow::connect_unary(Ui::MainWindow * ui,MainWindow * window){
+    QObject::connect(ui->pushButton_plusMinus,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_percent,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_Log,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_Sqrt,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_Factorial,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+}
+
+
+void MainWindow::connect_binary(Ui::MainWindow * ui,MainWindow * window){
+    QObject::connect(ui->pushButton_multiply,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
+    QObject::connect(ui->pushButton_add,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
+    QObject::connect(ui->pushButton_minus,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
+    QObject::connect(ui->pushButton_divide,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
+    QObject::connect(ui->pushButton_Power,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
 }
 
 MainWindow::~MainWindow()

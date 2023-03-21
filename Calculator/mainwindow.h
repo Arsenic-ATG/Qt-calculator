@@ -20,6 +20,11 @@ private:
 
 
 private slots:
+    void connect_buttons(Ui::MainWindow * ui,MainWindow * window);
+    void connect_digits(Ui::MainWindow * ui,MainWindow * window);
+    //void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window);
+    void connect_unary(Ui::MainWindow * ui,MainWindow * window);
+    void connect_binary(Ui::MainWindow * ui,MainWindow * window);
     double factorial(int labelnumber);
     void digit_pressed();
     void on_pushButton_dot_released();
