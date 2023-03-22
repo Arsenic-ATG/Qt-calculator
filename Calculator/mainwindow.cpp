@@ -2,12 +2,11 @@
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include <iostream>
+
 double firstNum;
 bool user_is_typing_secondNumber=false;
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     ui->Error_Label->setStyleSheet("QLabel {color : red;}");
@@ -195,7 +194,6 @@ void MainWindow::on_pushButton_equals_released()
         ui->label_2->setText(QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15) + " = ");
         input = QString::number(labelnumber,'g',15);
         ui->label->setText(input);
-
         user_is_typing_secondNumber=false;
     }
 }
