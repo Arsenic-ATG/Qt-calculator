@@ -15,11 +15,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-private:
+public:
     Ui::MainWindow *ui;
 
 
 private slots:
+
     double factorial(int labelnumber);
     void digit_pressed();
     void on_pushButton_dot_released();
@@ -30,5 +31,12 @@ private slots:
     void on_actionExit_triggered();
     void on_actionDark_triggered();
     void on_actionLight_triggered();
+
+public:
+    void connect_buttons(Ui::MainWindow * ui,MainWindow * window);
+    void connect_digits(Ui::MainWindow * ui,MainWindow * window);
+    //void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window);
+    void connect_unary(Ui::MainWindow * ui,MainWindow * window);
+    void connect_binary(Ui::MainWindow * ui,MainWindow * window);
 };
 #endif // MAINWINDOW_H
