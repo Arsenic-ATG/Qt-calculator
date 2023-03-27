@@ -1,0 +1,44 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-unix:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, macos-10.15, ubuntu-18.04]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Checkout submodules
+      uses: snickerbockers/submodules-init@v4
+    - name: test
+      run: make runtest
+      
+  build-win:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, windows-2016]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Checkout submodules
+      uses: snickerbockers/submodules-init@v4
+    - name: dbg_configure
+      run: mkdir build && cd build && cmake -DSIMPLECRYPTO_ENABLE_TESTS=ON ..
+    - name: dbg_build
+      run: cmake --build build --config Debug
+    - name: tests
+      run: ./build/tests/Debug/testmain.exe
+    - name: rel_configure
+      run: mkdir build_rel && cd build_rel && cmake -DSIMPLECRYPTO_ENABLE_BENCH=ON ..
+    - name: rel_build
+      run: cmake --build build --config Release
