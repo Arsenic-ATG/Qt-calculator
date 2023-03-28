@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QDebug>
 #include <iostream>
-
+#define FACTORIAL_INFINITY 15000
 double firstNum;
 bool user_is_typing_secondNumber=false;
 
@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->pushButton_minus->setCheckable(true);
     ui->pushButton_Power->setCheckable(true);
     ui->pushButton_Log->setCheckable(true);
+    ui->pushButton_mod->setCheckable(true);
 
 }
 
@@ -26,6 +27,7 @@ void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window){
     MainWindow::connect_digits(ui,window);
     MainWindow::connect_unary(ui,window);
     MainWindow::connect_binary(ui,window);
+    MainWindow::connect_special_digits(ui,window);
 }
 
 
@@ -40,6 +42,8 @@ void MainWindow::connect_digits(Ui::MainWindow * ui,MainWindow * window){
     QObject::connect(ui->pushButton_7,SIGNAL(released()),window,SLOT(digit_pressed()));
     QObject::connect(ui->pushButton_8,SIGNAL(released()),window,SLOT(digit_pressed()));
     QObject::connect(ui->pushButton_9,SIGNAL(released()),window,SLOT(digit_pressed()));
+
+
 }
 
 
@@ -49,6 +53,14 @@ void MainWindow::connect_unary(Ui::MainWindow * ui,MainWindow * window){
     QObject::connect(ui->pushButton_Log,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
     QObject::connect(ui->pushButton_Sqrt,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
     QObject::connect(ui->pushButton_Factorial,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_exponent,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_sigmoid,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_sin,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_cos,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_exponent_digit,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_pi,SIGNAL(released()),window,SLOT(digit_pressed()));
+
+
 }
 
 
@@ -58,6 +70,13 @@ void MainWindow::connect_binary(Ui::MainWindow * ui,MainWindow * window){
     QObject::connect(ui->pushButton_minus,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
     QObject::connect(ui->pushButton_divide,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
     QObject::connect(ui->pushButton_Power,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
+    QObject::connect(ui->pushButton_mod,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
+}
+
+void MainWindow::connect_special_digits(Ui::MainWindow *ui, MainWindow *window){
+    QObject::connect(ui->pushButton_pi,SIGNAL(released()),window,SLOT(special_number_pressed()));
+    QObject::connect(ui->pushButton_exponent_digit,SIGNAL(released()),window,SLOT(special_number_pressed()));
+
 }
 
 MainWindow::~MainWindow()
@@ -81,7 +100,7 @@ void MainWindow::digit_pressed()
     QString input;
     double labelnumber;
 
-    if((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked() || ui->pushButton_Power->isChecked()) && (!user_is_typing_secondNumber))
+    if((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked() || ui->pushButton_Power->isChecked() || ui->pushButton_mod->isChecked()) && (!user_is_typing_secondNumber))
     {
         //ui->pushButton_equals->setEnabled(false);
         user_is_typing_secondNumber=true;
@@ -131,6 +150,7 @@ void MainWindow::on_pushButton_clear_released()
     ui->pushButton_multiply->setChecked(false);
     ui->pushButton_divide->setChecked(false);
     ui->pushButton_Power->setChecked(false);
+    ui->pushButton_mod->setChecked(false);
     user_is_typing_secondNumber=false;
     ui->label->setText("0");
     //Updating the equation label
@@ -189,6 +209,19 @@ void MainWindow::on_pushButton_equals_released()
             symbol = " ^ ";
         }
 
+        else if(ui->pushButton_mod->isChecked())
+        {
+            if(secondNum==0){
+                ui->Error_Label->setText("Error message: cannot calculate mudulu of 0");
+            }
+            else{
+
+                labelnumber = (int(firstNum) % int(secondNum));
+                ui->pushButton_mod->setChecked(false);
+                symbol = " mod ";
+            }
+        }
+
 
         // Setting the equation label
         ui->label_2->setText(QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15) + " = ");
@@ -243,12 +276,30 @@ void MainWindow::unary_operation_pressed()
 
         input = QString::number(factorial(int(labelnumber)),'g',15);
     }
+
+    else if(button->text() == "exp"){
+        input = QString::number(exp(labelnumber),'g',15);
+    }
+    else if(button->text() == "sigmoid"){
+        input = QString::number(1/(1+exp(-labelnumber)),'g',15);
+    }
+
+    else if(button->text() == "sin"){
+        input = QString::number(sin(labelnumber),'g',15);
+    }
+    else if(button->text() == "cos"){
+        input = QString::number(cos(labelnumber),'g',15);
+    }
+
+
+
+
     symbol=button->text();
     if(button->text() == "!"){
-        ui->label_2->setText(QString::number(labelnumber)+symbol + " = ");
+        ui->label_2->setText("(" + QString::number(labelnumber) + ")" +symbol + " = ");
     }
     else{
-    ui->label_2->setText(symbol+ QString::number(labelnumber) + " = ");
+    ui->label_2->setText(symbol+ "(" + QString::number(labelnumber)+ ")" + " = ");
     }
     ui->label->setText(input);
 }
@@ -293,8 +344,23 @@ void MainWindow::binary_operation_pressed()
     {
         ui->label_2->setText(ui->label->text() + " ^ ");
     }
+
+    else if(ui->pushButton_mod->isChecked())
+    {
+        ui->label_2->setText(ui->label->text() + " mod ");
+    }
 }
 
+
+void MainWindow::special_number_pressed(){
+    QPushButton* button = (QPushButton *)sender();
+    if(button->text()=="e"){
+        ui->label->setText(QString::number(exp(1),'g',15));
+    }
+    else if(button->text()=="pi"){
+        ui->label->setText(QString::number(atan(1)*4,'g',15));
+    }
+}
 
 
 
@@ -304,6 +370,9 @@ void MainWindow::binary_operation_pressed()
 double MainWindow::factorial(int labelnumber){
     if(labelnumber<=1){
         return 1;
+    }
+    else if(labelnumber>=FACTORIAL_INFINITY){
+        return INFINITY;
     }
     else {
         labelnumber-=1;
