@@ -27,6 +27,7 @@ void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window){
     MainWindow::connect_digits(ui,window);
     MainWindow::connect_unary(ui,window);
     MainWindow::connect_binary(ui,window);
+    MainWindow::connect_special_digits(ui,window);
 }
 
 
@@ -41,6 +42,8 @@ void MainWindow::connect_digits(Ui::MainWindow * ui,MainWindow * window){
     QObject::connect(ui->pushButton_7,SIGNAL(released()),window,SLOT(digit_pressed()));
     QObject::connect(ui->pushButton_8,SIGNAL(released()),window,SLOT(digit_pressed()));
     QObject::connect(ui->pushButton_9,SIGNAL(released()),window,SLOT(digit_pressed()));
+
+
 }
 
 
@@ -51,6 +54,12 @@ void MainWindow::connect_unary(Ui::MainWindow * ui,MainWindow * window){
     QObject::connect(ui->pushButton_Sqrt,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
     QObject::connect(ui->pushButton_Factorial,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
     QObject::connect(ui->pushButton_exponent,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_sigmoid,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_sin,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_cos,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
+    QObject::connect(ui->pushButton_exponent_digit,SIGNAL(released()),window,SLOT(digit_pressed()));
+    QObject::connect(ui->pushButton_pi,SIGNAL(released()),window,SLOT(digit_pressed()));
+
 
 }
 
@@ -62,6 +71,12 @@ void MainWindow::connect_binary(Ui::MainWindow * ui,MainWindow * window){
     QObject::connect(ui->pushButton_divide,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
     QObject::connect(ui->pushButton_Power,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
     QObject::connect(ui->pushButton_mod,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
+}
+
+void MainWindow::connect_special_digits(Ui::MainWindow *ui, MainWindow *window){
+    QObject::connect(ui->pushButton_pi,SIGNAL(released()),window,SLOT(special_number_pressed()));
+    QObject::connect(ui->pushButton_exponent_digit,SIGNAL(released()),window,SLOT(special_number_pressed()));
+
 }
 
 MainWindow::~MainWindow()
@@ -196,10 +211,15 @@ void MainWindow::on_pushButton_equals_released()
 
         else if(ui->pushButton_mod->isChecked())
         {
+            if(secondNum==0){
+                ui->Error_Label->setText("Error message: cannot calculate mudulu of 0");
+            }
+            else{
 
-            labelnumber = (int(firstNum) % int(secondNum));
-            ui->pushButton_mod->setChecked(false);
-            symbol = " mod ";
+                labelnumber = (int(firstNum) % int(secondNum));
+                ui->pushButton_mod->setChecked(false);
+                symbol = " mod ";
+            }
         }
 
 
@@ -260,6 +280,20 @@ void MainWindow::unary_operation_pressed()
     else if(button->text() == "exp"){
         input = QString::number(exp(labelnumber),'g',15);
     }
+    else if(button->text() == "sigmoid"){
+        input = QString::number(1/(1+exp(-labelnumber)),'g',15);
+    }
+
+    else if(button->text() == "sin"){
+        input = QString::number(sin(labelnumber),'g',15);
+    }
+    else if(button->text() == "cos"){
+        input = QString::number(cos(labelnumber),'g',15);
+    }
+
+
+
+
     symbol=button->text();
     if(button->text() == "!"){
         ui->label_2->setText("(" + QString::number(labelnumber) + ")" +symbol + " = ");
@@ -317,6 +351,16 @@ void MainWindow::binary_operation_pressed()
     }
 }
 
+
+void MainWindow::special_number_pressed(){
+    QPushButton* button = (QPushButton *)sender();
+    if(button->text()=="e"){
+        ui->label->setText(QString::number(exp(1),'g',15));
+    }
+    else if(button->text()=="pi"){
+        ui->label->setText(QString::number(atan(1)*4,'g',15));
+    }
+}
 
 
 

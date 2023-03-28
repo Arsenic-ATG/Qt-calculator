@@ -23,6 +23,7 @@ private slots:
 
     double factorial(int labelnumber);
     void digit_pressed();
+    void special_number_pressed();
     void on_pushButton_dot_released();
     void unary_operation_pressed();
     void on_pushButton_clear_released();
@@ -38,5 +39,6 @@ public:
     //void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window);
     void connect_unary(Ui::MainWindow * ui,MainWindow * window);
     void connect_binary(Ui::MainWindow * ui,MainWindow * window);
+    void connect_special_digits(Ui::MainWindow * ui,MainWindow * window);
 };
 #endif // MAINWINDOW_H
