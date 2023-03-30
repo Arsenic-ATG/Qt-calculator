@@ -928,6 +928,7 @@ public:
         comboBox = new QComboBox(centralwidget);
         comboBox->addItem(QString());
         comboBox->addItem(QString());
+        comboBox->addItem(QString());
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setEnabled(true);
 
@@ -1094,6 +1095,7 @@ public:
 #endif // QT_NO_SHORTCUT
         comboBox->setItemText(0, QApplication::translate("MainWindow", "rad", nullptr));
         comboBox->setItemText(1, QApplication::translate("MainWindow", "degrees", nullptr));
+        comboBox->setItemText(2, QApplication::translate("MainWindow", "Grad", nullptr));
 
         menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));
         menuThemes->setTitle(QApplication::translate("MainWindow", "Themes", nullptr));
