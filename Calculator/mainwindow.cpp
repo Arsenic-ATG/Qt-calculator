@@ -3,9 +3,13 @@
 #include <QDebug>
 #include <iostream>
 #define FACTORIAL_INFINITY 15000
+#define RAD 57.2957795
+#define PI 3.14159265358979323
+#define GRAD 63.661977237
 double firstNum;
 bool user_is_typing_secondNumber=false;
-
+double answer=0;
+QString arithmetic_expression;
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -57,7 +61,6 @@ void MainWindow::connect_unary(Ui::MainWindow * ui,MainWindow * window){
     QObject::connect(ui->pushButton_sigmoid,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
     QObject::connect(ui->pushButton_sin,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
     QObject::connect(ui->pushButton_cos,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_exponent_digit,SIGNAL(released()),window,SLOT(digit_pressed()));
     QObject::connect(ui->pushButton_pi,SIGNAL(released()),window,SLOT(digit_pressed()));
 
 
@@ -75,7 +78,7 @@ void MainWindow::connect_binary(Ui::MainWindow * ui,MainWindow * window){
 
 void MainWindow::connect_special_digits(Ui::MainWindow *ui, MainWindow *window){
     QObject::connect(ui->pushButton_pi,SIGNAL(released()),window,SLOT(special_number_pressed()));
-    QObject::connect(ui->pushButton_exponent_digit,SIGNAL(released()),window,SLOT(special_number_pressed()));
+    QObject::connect(ui->pushButton_previos_answer,SIGNAL(released()),window,SLOT(special_number_pressed()));
 
 }
 
@@ -228,6 +231,8 @@ void MainWindow::on_pushButton_equals_released()
         input = QString::number(labelnumber,'g',15);
         ui->label->setText(input);
         user_is_typing_secondNumber=false;
+        answer=input.toDouble();
+        arithmetic_expression=ui->label_2->text();
     }
 }
 
@@ -285,10 +290,15 @@ void MainWindow::unary_operation_pressed()
     }
 
     else if(button->text() == "sin"){
-        input = QString::number(sin(labelnumber),'g',15);
+        if(ui->comboBox->currentIndex()==1){input = QString::number(sin(labelnumber/RAD),'g',15);}
+        else if(ui->comboBox->currentIndex()==2){input = QString::number(cos(labelnumber/GRAD),'g',15);}
+        else input = QString::number(sin(labelnumber),'g',15);
+
     }
     else if(button->text() == "cos"){
-        input = QString::number(cos(labelnumber),'g',15);
+        if(ui->comboBox->currentIndex()==1){input = QString::number(cos(labelnumber/RAD),'g',15);}
+        else if(ui->comboBox->currentIndex()==2){input = QString::number(cos(labelnumber/GRAD),'g',15);}
+        else input = QString::number(cos(labelnumber),'g',15);
     }
 
 
@@ -302,10 +312,10 @@ void MainWindow::unary_operation_pressed()
     ui->label_2->setText(symbol+ "(" + QString::number(labelnumber)+ ")" + " = ");
     }
     ui->label->setText(input);
+    answer=input.toDouble();
+    arithmetic_expression=ui->label_2->text();
+
 }
-
-
-
 
 
 
@@ -349,16 +359,20 @@ void MainWindow::binary_operation_pressed()
     {
         ui->label_2->setText(ui->label->text() + " mod ");
     }
+
+
 }
 
 
 void MainWindow::special_number_pressed(){
     QPushButton* button = (QPushButton *)sender();
-    if(button->text()=="e"){
-        ui->label->setText(QString::number(exp(1),'g',15));
+    if(button->text()=="ans"){
+        ui->label->setText(QString::number(answer,'g',15));
+        if(!user_is_typing_secondNumber){ui->label_2->setText(ui->label_2->text()+ "answer");user_is_typing_secondNumber=true;}
+        else{ui->label_2->setText(arithmetic_expression);}
     }
     else if(button->text()=="pi"){
-        ui->label->setText(QString::number(atan(1)*4,'g',15));
+        ui->label->setText(QString::number(PI,'g',15));
     }
 }
 

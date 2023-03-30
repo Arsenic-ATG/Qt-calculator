@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -40,36 +41,37 @@ public:
     QLabel *label_2;
     QLabel *label;
     QGridLayout *keypad_grid;
-    QPushButton *pushButton_divide;
-    QPushButton *pushButton_6;
-    QPushButton *pushButton_mod;
-    QPushButton *pushButton_9;
-    QPushButton *pushButton_minus;
-    QPushButton *pushButton_Log;
-    QPushButton *pushButton_sin;
-    QPushButton *pushButton_3;
     QPushButton *pushButton_Factorial;
-    QPushButton *pushButton_plusMinus;
-    QPushButton *pushButton_7;
-    QPushButton *pushButton_cos;
-    QPushButton *pushButton_clear;
-    QPushButton *pushButton_0;
-    QPushButton *pushButton_Sqrt;
-    QPushButton *pushButton_8;
     QPushButton *pushButton_multiply;
-    QPushButton *pushButton_add;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_9;
+    QPushButton *pushButton_Sqrt;
     QPushButton *pushButton_Power;
-    QPushButton *pushButton_sigmoid;
-    QPushButton *pushButton_4;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_plusMinus;
     QPushButton *pushButton_equals;
+    QPushButton *pushButton_mod;
+    QPushButton *pushButton_Log;
     QPushButton *pushButton_1;
-    QPushButton *pushButton_percent;
-    QPushButton *pushButton_exponent;
-    QPushButton *pushButton_dot;
-    QPushButton *pushButton_2;
     QPushButton *pushButton_5;
-    QPushButton *pushButton_exponent_digit;
+    QPushButton *pushButton_4;
+    QPushButton *pushButton_add;
+    QPushButton *pushButton_dot;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_divide;
+    QPushButton *pushButton_percent;
+    QPushButton *pushButton_minus;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_sigmoid;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_0;
+    QPushButton *pushButton_exponent;
+    QPushButton *pushButton_sin;
+    QPushButton *pushButton_clear;
+    QPushButton *pushButton_cos;
+    QPushButton *pushButton_previos_answer;
     QPushButton *pushButton_pi;
+    QComboBox *comboBox;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuThemes;
@@ -80,7 +82,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->setEnabled(true);
-        MainWindow->resize(441, 494);
+        MainWindow->resize(437, 520);
         MainWindow->setMinimumSize(QSize(0, 75));
         MainWindow->setMouseTracking(false);
         MainWindow->setStyleSheet(QString::fromUtf8("/*Change the background color */\n"
@@ -173,225 +175,20 @@ public:
         verticalLayout_2->addWidget(verticalWidget);
 
         keypad_grid = new QGridLayout();
-        keypad_grid->setSpacing(20);
         keypad_grid->setObjectName(QString::fromUtf8("keypad_grid"));
         keypad_grid->setSizeConstraint(QLayout::SetDefaultConstraint);
-        keypad_grid->setContentsMargins(2, 3, 2, 2);
-        pushButton_divide = new QPushButton(centralwidget);
-        buttonGroup = new QButtonGroup(MainWindow);
-        buttonGroup->setObjectName(QString::fromUtf8("buttonGroup"));
-        buttonGroup->setExclusive(true);
-        buttonGroup->addButton(pushButton_divide);
-        pushButton_divide->setObjectName(QString::fromUtf8("pushButton_divide"));
-        sizePolicy1.setHeightForWidth(pushButton_divide->sizePolicy().hasHeightForWidth());
-        pushButton_divide->setSizePolicy(sizePolicy1);
+        keypad_grid->setHorizontalSpacing(20);
+        keypad_grid->setVerticalSpacing(15);
+        keypad_grid->setContentsMargins(2, 4, 2, 4);
+        pushButton_Factorial = new QPushButton(centralwidget);
+        pushButton_Factorial->setObjectName(QString::fromUtf8("pushButton_Factorial"));
+        sizePolicy1.setHeightForWidth(pushButton_Factorial->sizePolicy().hasHeightForWidth());
+        pushButton_Factorial->setSizePolicy(sizePolicy1);
         QFont font2;
         font2.setFamily(QString::fromUtf8("Arial"));
         font2.setPointSize(16);
         font2.setBold(false);
         font2.setWeight(50);
-        pushButton_divide->setFont(font2);
-        pushButton_divide->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #FFF;\n"
-"  background-color: rgb(196, 56, 227);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}\n"
-""));
-
-        keypad_grid->addWidget(pushButton_divide, 2, 8, 1, 1);
-
-        pushButton_6 = new QPushButton(centralwidget);
-        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-        sizePolicy1.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
-        pushButton_6->setSizePolicy(sizePolicy1);
-        pushButton_6->setMinimumSize(QSize(50, 50));
-        pushButton_6->setFont(font2);
-        pushButton_6->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"color: rgb(134,134,140);\n"
-"background-color: rgb(239,239,239);\n"
-"border-radius: 4px;\n"
-"padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(\n"
-"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff\n"
-");\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border-style: inset;\n"
-"background: qradialgradient(\n"
-"cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #707070, stop: 1 #606060\n"
-");\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_6, 4, 3, 1, 1);
-
-        pushButton_mod = new QPushButton(centralwidget);
-        pushButton_mod->setObjectName(QString::fromUtf8("pushButton_mod"));
-        sizePolicy1.setHeightForWidth(pushButton_mod->sizePolicy().hasHeightForWidth());
-        pushButton_mod->setSizePolicy(sizePolicy1);
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("Arial"));
-        font3.setPointSize(12);
-        font3.setBold(false);
-        font3.setWeight(50);
-        pushButton_mod->setFont(font3);
-        pushButton_mod->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #000;\n"
-"  background-color: rgb(215, 215, 215);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_mod, 4, 4, 1, 1);
-
-        pushButton_9 = new QPushButton(centralwidget);
-        pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
-        sizePolicy1.setHeightForWidth(pushButton_9->sizePolicy().hasHeightForWidth());
-        pushButton_9->setSizePolicy(sizePolicy1);
-        pushButton_9->setMinimumSize(QSize(50, 50));
-        pushButton_9->setFont(font2);
-        pushButton_9->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"color: rgb(134,134,140);\n"
-"background-color: rgb(239,239,239);\n"
-"border-radius: 4px;\n"
-"padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(\n"
-"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff\n"
-");\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border-style: inset;\n"
-"background: qradialgradient(\n"
-"cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #707070, stop: 1 #606060\n"
-");\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_9, 5, 3, 1, 1);
-
-        pushButton_minus = new QPushButton(centralwidget);
-        buttonGroup->addButton(pushButton_minus);
-        pushButton_minus->setObjectName(QString::fromUtf8("pushButton_minus"));
-        sizePolicy1.setHeightForWidth(pushButton_minus->sizePolicy().hasHeightForWidth());
-        pushButton_minus->setSizePolicy(sizePolicy1);
-        pushButton_minus->setFont(font2);
-        pushButton_minus->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #FFF;\n"
-"  background-color: rgb(38, 196, 111);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_minus, 5, 8, 1, 1);
-
-        pushButton_Log = new QPushButton(centralwidget);
-        pushButton_Log->setObjectName(QString::fromUtf8("pushButton_Log"));
-        sizePolicy1.setHeightForWidth(pushButton_Log->sizePolicy().hasHeightForWidth());
-        pushButton_Log->setSizePolicy(sizePolicy1);
-        pushButton_Log->setFont(font3);
-        pushButton_Log->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #000;\n"
-"  background-color: rgb(215, 215, 215);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_Log, 1, 4, 1, 1);
-
-        pushButton_sin = new QPushButton(centralwidget);
-        pushButton_sin->setObjectName(QString::fromUtf8("pushButton_sin"));
-        sizePolicy1.setHeightForWidth(pushButton_sin->sizePolicy().hasHeightForWidth());
-        pushButton_sin->setSizePolicy(sizePolicy1);
-        pushButton_sin->setFont(font3);
-        pushButton_sin->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #000;\n"
-"  background-color: rgb(215, 215, 215);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_sin, 5, 5, 1, 1);
-
-        pushButton_3 = new QPushButton(centralwidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        sizePolicy1.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
-        pushButton_3->setSizePolicy(sizePolicy1);
-        pushButton_3->setMinimumSize(QSize(50, 50));
-        pushButton_3->setFont(font2);
-        pushButton_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"color: rgb(134,134,140);\n"
-"background-color: rgb(239,239,239);\n"
-"border-radius: 4px;\n"
-"padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(\n"
-"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff\n"
-");\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border-style: inset;\n"
-"background: qradialgradient(\n"
-"cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #707070, stop: 1 #606060\n"
-");\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_3, 2, 3, 1, 1);
-
-        pushButton_Factorial = new QPushButton(centralwidget);
-        pushButton_Factorial->setObjectName(QString::fromUtf8("pushButton_Factorial"));
-        sizePolicy1.setHeightForWidth(pushButton_Factorial->sizePolicy().hasHeightForWidth());
-        pushButton_Factorial->setSizePolicy(sizePolicy1);
         pushButton_Factorial->setFont(font2);
         pushButton_Factorial->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
 "\n"
@@ -407,18 +204,22 @@ public:
 "                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
 "}"));
 
-        keypad_grid->addWidget(pushButton_Factorial, 4, 5, 1, 1);
+        keypad_grid->addWidget(pushButton_Factorial, 4, 4, 1, 1);
 
-        pushButton_plusMinus = new QPushButton(centralwidget);
-        pushButton_plusMinus->setObjectName(QString::fromUtf8("pushButton_plusMinus"));
-        sizePolicy1.setHeightForWidth(pushButton_plusMinus->sizePolicy().hasHeightForWidth());
-        pushButton_plusMinus->setSizePolicy(sizePolicy1);
-        pushButton_plusMinus->setFont(font2);
-        pushButton_plusMinus->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+        pushButton_multiply = new QPushButton(centralwidget);
+        buttonGroup = new QButtonGroup(MainWindow);
+        buttonGroup->setObjectName(QString::fromUtf8("buttonGroup"));
+        buttonGroup->setExclusive(true);
+        buttonGroup->addButton(pushButton_multiply);
+        pushButton_multiply->setObjectName(QString::fromUtf8("pushButton_multiply"));
+        sizePolicy1.setHeightForWidth(pushButton_multiply->sizePolicy().hasHeightForWidth());
+        pushButton_multiply->setSizePolicy(sizePolicy1);
+        pushButton_multiply->setFont(font2);
+        pushButton_multiply->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
 "\n"
 "QPushButton {\n"
-"  color: #000;\n"
-"  background-color: rgb(215, 215, 215);\n"
+"  color: #FFF;\n"
+"  background-color: rgb(241, 122, 28);\n"
 "  border-radius: 4px;\n"
 "  padding: 10px;\n"
 "}\n"
@@ -428,7 +229,7 @@ public:
 "                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
 "}"));
 
-        keypad_grid->addWidget(pushButton_plusMinus, 1, 1, 1, 1);
+        keypad_grid->addWidget(pushButton_multiply, 1, 7, 1, 1);
 
         pushButton_7 = new QPushButton(centralwidget);
         pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
@@ -460,53 +261,13 @@ public:
 
         keypad_grid->addWidget(pushButton_7, 5, 0, 1, 1);
 
-        pushButton_cos = new QPushButton(centralwidget);
-        pushButton_cos->setObjectName(QString::fromUtf8("pushButton_cos"));
-        sizePolicy1.setHeightForWidth(pushButton_cos->sizePolicy().hasHeightForWidth());
-        pushButton_cos->setSizePolicy(sizePolicy1);
-        pushButton_cos->setFont(font3);
-        pushButton_cos->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #000;\n"
-"  background-color: rgb(215, 215, 215);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_cos, 6, 5, 1, 1);
-
-        pushButton_clear = new QPushButton(centralwidget);
-        pushButton_clear->setObjectName(QString::fromUtf8("pushButton_clear"));
-        sizePolicy1.setHeightForWidth(pushButton_clear->sizePolicy().hasHeightForWidth());
-        pushButton_clear->setSizePolicy(sizePolicy1);
-        pushButton_clear->setFont(font2);
-        pushButton_clear->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  background-color: rgb(254,99,71);\n"
-"  border-radius: 4px;\n"
-"  padding: 5px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_clear, 1, 0, 1, 1);
-
-        pushButton_0 = new QPushButton(centralwidget);
-        pushButton_0->setObjectName(QString::fromUtf8("pushButton_0"));
-        sizePolicy1.setHeightForWidth(pushButton_0->sizePolicy().hasHeightForWidth());
-        pushButton_0->setSizePolicy(sizePolicy1);
-        pushButton_0->setFont(font2);
-        pushButton_0->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        pushButton_9 = new QPushButton(centralwidget);
+        pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
+        sizePolicy1.setHeightForWidth(pushButton_9->sizePolicy().hasHeightForWidth());
+        pushButton_9->setSizePolicy(sizePolicy1);
+        pushButton_9->setMinimumSize(QSize(50, 50));
+        pushButton_9->setFont(font2);
+        pushButton_9->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "color: rgb(134,134,140);\n"
 "background-color: rgb(239,239,239);\n"
 "border-radius: 4px;\n"
@@ -528,7 +289,7 @@ public:
 ");\n"
 "}"));
 
-        keypad_grid->addWidget(pushButton_0, 6, 0, 1, 1);
+        keypad_grid->addWidget(pushButton_9, 5, 2, 1, 1);
 
         pushButton_Sqrt = new QPushButton(centralwidget);
         pushButton_Sqrt->setObjectName(QString::fromUtf8("pushButton_Sqrt"));
@@ -549,7 +310,28 @@ public:
 "                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
 "}"));
 
-        keypad_grid->addWidget(pushButton_Sqrt, 2, 5, 1, 1);
+        keypad_grid->addWidget(pushButton_Sqrt, 2, 4, 1, 1);
+
+        pushButton_Power = new QPushButton(centralwidget);
+        pushButton_Power->setObjectName(QString::fromUtf8("pushButton_Power"));
+        sizePolicy1.setHeightForWidth(pushButton_Power->sizePolicy().hasHeightForWidth());
+        pushButton_Power->setSizePolicy(sizePolicy1);
+        pushButton_Power->setFont(font2);
+        pushButton_Power->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #FFF;\n"
+"  background-color: rgb(241, 122, 28);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_Power, 1, 4, 1, 1);
 
         pushButton_8 = new QPushButton(centralwidget);
         pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
@@ -581,77 +363,12 @@ public:
 
         keypad_grid->addWidget(pushButton_8, 5, 1, 1, 1);
 
-        pushButton_multiply = new QPushButton(centralwidget);
-        buttonGroup->addButton(pushButton_multiply);
-        pushButton_multiply->setObjectName(QString::fromUtf8("pushButton_multiply"));
-        sizePolicy1.setHeightForWidth(pushButton_multiply->sizePolicy().hasHeightForWidth());
-        pushButton_multiply->setSizePolicy(sizePolicy1);
-        pushButton_multiply->setFont(font2);
-        pushButton_multiply->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #FFF;\n"
-"  background-color: rgb(241, 122, 28);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_multiply, 1, 8, 1, 1);
-
-        pushButton_add = new QPushButton(centralwidget);
-        buttonGroup->addButton(pushButton_add);
-        pushButton_add->setObjectName(QString::fromUtf8("pushButton_add"));
-        sizePolicy1.setHeightForWidth(pushButton_add->sizePolicy().hasHeightForWidth());
-        pushButton_add->setSizePolicy(sizePolicy1);
-        pushButton_add->setFont(font2);
-        pushButton_add->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #FFF;\n"
-"  background-color: rgb(105, 165, 245);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_add, 4, 8, 1, 1);
-
-        pushButton_Power = new QPushButton(centralwidget);
-        pushButton_Power->setObjectName(QString::fromUtf8("pushButton_Power"));
-        sizePolicy1.setHeightForWidth(pushButton_Power->sizePolicy().hasHeightForWidth());
-        pushButton_Power->setSizePolicy(sizePolicy1);
-        pushButton_Power->setFont(font2);
-        pushButton_Power->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #FFF;\n"
-"  background-color: rgb(241, 122, 28);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_Power, 1, 5, 1, 1);
-
-        pushButton_sigmoid = new QPushButton(centralwidget);
-        pushButton_sigmoid->setObjectName(QString::fromUtf8("pushButton_sigmoid"));
-        sizePolicy1.setHeightForWidth(pushButton_sigmoid->sizePolicy().hasHeightForWidth());
-        pushButton_sigmoid->setSizePolicy(sizePolicy1);
-        pushButton_sigmoid->setFont(font3);
-        pushButton_sigmoid->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+        pushButton_plusMinus = new QPushButton(centralwidget);
+        pushButton_plusMinus->setObjectName(QString::fromUtf8("pushButton_plusMinus"));
+        sizePolicy1.setHeightForWidth(pushButton_plusMinus->sizePolicy().hasHeightForWidth());
+        pushButton_plusMinus->setSizePolicy(sizePolicy1);
+        pushButton_plusMinus->setFont(font2);
+        pushButton_plusMinus->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
 "\n"
 "QPushButton {\n"
 "  color: #000;\n"
@@ -665,37 +382,7 @@ public:
 "                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
 "}"));
 
-        keypad_grid->addWidget(pushButton_sigmoid, 5, 4, 1, 1);
-
-        pushButton_4 = new QPushButton(centralwidget);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        sizePolicy1.setHeightForWidth(pushButton_4->sizePolicy().hasHeightForWidth());
-        pushButton_4->setSizePolicy(sizePolicy1);
-        pushButton_4->setMinimumSize(QSize(50, 50));
-        pushButton_4->setFont(font2);
-        pushButton_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"color: rgb(134,134,140);\n"
-"background-color: rgb(239,239,239);\n"
-"border-radius: 4px;\n"
-"padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"background: qradialgradient(\n"
-"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
-"radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff\n"
-");\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"border-style: inset;\n"
-"background: qradialgradient(\n"
-"cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
-"radius: 1.35, stop: 0 #707070, stop: 1 #606060\n"
-");\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_4, 4, 0, 1, 1);
+        keypad_grid->addWidget(pushButton_plusMinus, 1, 1, 1, 1);
 
         pushButton_equals = new QPushButton(centralwidget);
         pushButton_equals->setObjectName(QString::fromUtf8("pushButton_equals"));
@@ -717,7 +404,54 @@ public:
 "                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
 "}"));
 
-        keypad_grid->addWidget(pushButton_equals, 6, 8, 1, 1);
+        keypad_grid->addWidget(pushButton_equals, 6, 7, 1, 1);
+
+        pushButton_mod = new QPushButton(centralwidget);
+        pushButton_mod->setObjectName(QString::fromUtf8("pushButton_mod"));
+        sizePolicy1.setHeightForWidth(pushButton_mod->sizePolicy().hasHeightForWidth());
+        pushButton_mod->setSizePolicy(sizePolicy1);
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("Arial"));
+        font3.setPointSize(12);
+        font3.setBold(false);
+        font3.setWeight(50);
+        pushButton_mod->setFont(font3);
+        pushButton_mod->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #000;\n"
+"  background-color: rgb(215, 215, 215);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_mod, 4, 3, 1, 1);
+
+        pushButton_Log = new QPushButton(centralwidget);
+        pushButton_Log->setObjectName(QString::fromUtf8("pushButton_Log"));
+        sizePolicy1.setHeightForWidth(pushButton_Log->sizePolicy().hasHeightForWidth());
+        pushButton_Log->setSizePolicy(sizePolicy1);
+        pushButton_Log->setFont(font3);
+        pushButton_Log->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #000;\n"
+"  background-color: rgb(215, 215, 215);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_Log, 1, 3, 1, 1);
 
         pushButton_1 = new QPushButton(centralwidget);
         pushButton_1->setObjectName(QString::fromUtf8("pushButton_1"));
@@ -749,16 +483,77 @@ public:
 
         keypad_grid->addWidget(pushButton_1, 2, 0, 1, 1);
 
-        pushButton_percent = new QPushButton(centralwidget);
-        pushButton_percent->setObjectName(QString::fromUtf8("pushButton_percent"));
-        sizePolicy1.setHeightForWidth(pushButton_percent->sizePolicy().hasHeightForWidth());
-        pushButton_percent->setSizePolicy(sizePolicy1);
-        pushButton_percent->setFont(font2);
-        pushButton_percent->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+        pushButton_5 = new QPushButton(centralwidget);
+        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
+        sizePolicy1.setHeightForWidth(pushButton_5->sizePolicy().hasHeightForWidth());
+        pushButton_5->setSizePolicy(sizePolicy1);
+        pushButton_5->setMinimumSize(QSize(50, 50));
+        pushButton_5->setFont(font2);
+        pushButton_5->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"color: rgb(134,134,140);\n"
+"background-color: rgb(239,239,239);\n"
+"border-radius: 4px;\n"
+"padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(\n"
+"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff\n"
+");\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"border-style: inset;\n"
+"background: qradialgradient(\n"
+"cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 #707070, stop: 1 #606060\n"
+");\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_5, 4, 1, 1, 1);
+
+        pushButton_4 = new QPushButton(centralwidget);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        sizePolicy1.setHeightForWidth(pushButton_4->sizePolicy().hasHeightForWidth());
+        pushButton_4->setSizePolicy(sizePolicy1);
+        pushButton_4->setMinimumSize(QSize(50, 50));
+        pushButton_4->setFont(font2);
+        pushButton_4->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"color: rgb(134,134,140);\n"
+"background-color: rgb(239,239,239);\n"
+"border-radius: 4px;\n"
+"padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(\n"
+"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff\n"
+");\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"border-style: inset;\n"
+"background: qradialgradient(\n"
+"cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 #707070, stop: 1 #606060\n"
+");\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_4, 4, 0, 1, 1);
+
+        pushButton_add = new QPushButton(centralwidget);
+        buttonGroup->addButton(pushButton_add);
+        pushButton_add->setObjectName(QString::fromUtf8("pushButton_add"));
+        sizePolicy1.setHeightForWidth(pushButton_add->sizePolicy().hasHeightForWidth());
+        pushButton_add->setSizePolicy(sizePolicy1);
+        pushButton_add->setFont(font2);
+        pushButton_add->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
 "\n"
 "QPushButton {\n"
-"  color: #000;\n"
-"  background-color: rgb(215, 215, 215);\n"
+"  color: #FFF;\n"
+"  background-color: rgb(105, 165, 245);\n"
 "  border-radius: 4px;\n"
 "  padding: 10px;\n"
 "}\n"
@@ -768,28 +563,7 @@ public:
 "                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
 "}"));
 
-        keypad_grid->addWidget(pushButton_percent, 1, 3, 1, 1);
-
-        pushButton_exponent = new QPushButton(centralwidget);
-        pushButton_exponent->setObjectName(QString::fromUtf8("pushButton_exponent"));
-        sizePolicy1.setHeightForWidth(pushButton_exponent->sizePolicy().hasHeightForWidth());
-        pushButton_exponent->setSizePolicy(sizePolicy1);
-        pushButton_exponent->setFont(font3);
-        pushButton_exponent->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
-"\n"
-"QPushButton {\n"
-"  color: #000;\n"
-"  background-color: rgb(215, 215, 215);\n"
-"  border-radius: 4px;\n"
-"  padding: 10px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
-"}"));
-
-        keypad_grid->addWidget(pushButton_exponent, 2, 4, 1, 1);
+        keypad_grid->addWidget(pushButton_add, 4, 7, 1, 1);
 
         pushButton_dot = new QPushButton(centralwidget);
         pushButton_dot->setObjectName(QString::fromUtf8("pushButton_dot"));
@@ -819,6 +593,153 @@ public:
 "}"));
 
         keypad_grid->addWidget(pushButton_dot, 6, 1, 1, 1);
+
+        pushButton_6 = new QPushButton(centralwidget);
+        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
+        sizePolicy1.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
+        pushButton_6->setSizePolicy(sizePolicy1);
+        pushButton_6->setMinimumSize(QSize(50, 50));
+        pushButton_6->setFont(font2);
+        pushButton_6->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"color: rgb(134,134,140);\n"
+"background-color: rgb(239,239,239);\n"
+"border-radius: 4px;\n"
+"padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(\n"
+"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff\n"
+");\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"border-style: inset;\n"
+"background: qradialgradient(\n"
+"cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 #707070, stop: 1 #606060\n"
+");\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_6, 4, 2, 1, 1);
+
+        pushButton_divide = new QPushButton(centralwidget);
+        buttonGroup->addButton(pushButton_divide);
+        pushButton_divide->setObjectName(QString::fromUtf8("pushButton_divide"));
+        sizePolicy1.setHeightForWidth(pushButton_divide->sizePolicy().hasHeightForWidth());
+        pushButton_divide->setSizePolicy(sizePolicy1);
+        pushButton_divide->setFont(font2);
+        pushButton_divide->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #FFF;\n"
+"  background-color: rgb(196, 56, 227);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}\n"
+""));
+
+        keypad_grid->addWidget(pushButton_divide, 2, 7, 1, 1);
+
+        pushButton_percent = new QPushButton(centralwidget);
+        pushButton_percent->setObjectName(QString::fromUtf8("pushButton_percent"));
+        sizePolicy1.setHeightForWidth(pushButton_percent->sizePolicy().hasHeightForWidth());
+        pushButton_percent->setSizePolicy(sizePolicy1);
+        pushButton_percent->setFont(font2);
+        pushButton_percent->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #000;\n"
+"  background-color: rgb(215, 215, 215);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_percent, 1, 2, 1, 1);
+
+        pushButton_minus = new QPushButton(centralwidget);
+        buttonGroup->addButton(pushButton_minus);
+        pushButton_minus->setObjectName(QString::fromUtf8("pushButton_minus"));
+        sizePolicy1.setHeightForWidth(pushButton_minus->sizePolicy().hasHeightForWidth());
+        pushButton_minus->setSizePolicy(sizePolicy1);
+        pushButton_minus->setFont(font2);
+        pushButton_minus->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #FFF;\n"
+"  background-color: rgb(38, 196, 111);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_minus, 5, 7, 1, 1);
+
+        pushButton_3 = new QPushButton(centralwidget);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        sizePolicy1.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
+        pushButton_3->setSizePolicy(sizePolicy1);
+        pushButton_3->setMinimumSize(QSize(50, 50));
+        pushButton_3->setFont(font2);
+        pushButton_3->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"color: rgb(134,134,140);\n"
+"background-color: rgb(239,239,239);\n"
+"border-radius: 4px;\n"
+"padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background: qradialgradient(\n"
+"cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,\n"
+"radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff\n"
+");\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"border-style: inset;\n"
+"background: qradialgradient(\n"
+"cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,\n"
+"radius: 1.35, stop: 0 #707070, stop: 1 #606060\n"
+");\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_3, 2, 2, 1, 1);
+
+        pushButton_sigmoid = new QPushButton(centralwidget);
+        pushButton_sigmoid->setObjectName(QString::fromUtf8("pushButton_sigmoid"));
+        sizePolicy1.setHeightForWidth(pushButton_sigmoid->sizePolicy().hasHeightForWidth());
+        pushButton_sigmoid->setSizePolicy(sizePolicy1);
+        pushButton_sigmoid->setFont(font3);
+        pushButton_sigmoid->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #000;\n"
+"  background-color: rgb(215, 215, 215);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_sigmoid, 5, 3, 1, 1);
 
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
@@ -850,13 +771,12 @@ public:
 
         keypad_grid->addWidget(pushButton_2, 2, 1, 1, 1);
 
-        pushButton_5 = new QPushButton(centralwidget);
-        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        sizePolicy1.setHeightForWidth(pushButton_5->sizePolicy().hasHeightForWidth());
-        pushButton_5->setSizePolicy(sizePolicy1);
-        pushButton_5->setMinimumSize(QSize(50, 50));
-        pushButton_5->setFont(font2);
-        pushButton_5->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        pushButton_0 = new QPushButton(centralwidget);
+        pushButton_0->setObjectName(QString::fromUtf8("pushButton_0"));
+        sizePolicy1.setHeightForWidth(pushButton_0->sizePolicy().hasHeightForWidth());
+        pushButton_0->setSizePolicy(sizePolicy1);
+        pushButton_0->setFont(font2);
+        pushButton_0->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "color: rgb(134,134,140);\n"
 "background-color: rgb(239,239,239);\n"
 "border-radius: 4px;\n"
@@ -878,14 +798,14 @@ public:
 ");\n"
 "}"));
 
-        keypad_grid->addWidget(pushButton_5, 4, 1, 1, 1);
+        keypad_grid->addWidget(pushButton_0, 6, 0, 1, 1);
 
-        pushButton_exponent_digit = new QPushButton(centralwidget);
-        pushButton_exponent_digit->setObjectName(QString::fromUtf8("pushButton_exponent_digit"));
-        sizePolicy1.setHeightForWidth(pushButton_exponent_digit->sizePolicy().hasHeightForWidth());
-        pushButton_exponent_digit->setSizePolicy(sizePolicy1);
-        pushButton_exponent_digit->setFont(font3);
-        pushButton_exponent_digit->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+        pushButton_exponent = new QPushButton(centralwidget);
+        pushButton_exponent->setObjectName(QString::fromUtf8("pushButton_exponent"));
+        sizePolicy1.setHeightForWidth(pushButton_exponent->sizePolicy().hasHeightForWidth());
+        pushButton_exponent->setSizePolicy(sizePolicy1);
+        pushButton_exponent->setFont(font3);
+        pushButton_exponent->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
 "\n"
 "QPushButton {\n"
 "  color: #000;\n"
@@ -899,7 +819,90 @@ public:
 "                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
 "}"));
 
-        keypad_grid->addWidget(pushButton_exponent_digit, 6, 4, 1, 1);
+        keypad_grid->addWidget(pushButton_exponent, 2, 3, 1, 1);
+
+        pushButton_sin = new QPushButton(centralwidget);
+        pushButton_sin->setObjectName(QString::fromUtf8("pushButton_sin"));
+        sizePolicy1.setHeightForWidth(pushButton_sin->sizePolicy().hasHeightForWidth());
+        pushButton_sin->setSizePolicy(sizePolicy1);
+        pushButton_sin->setFont(font3);
+        pushButton_sin->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #000;\n"
+"  background-color: rgb(215, 215, 215);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_sin, 5, 4, 1, 1);
+
+        pushButton_clear = new QPushButton(centralwidget);
+        pushButton_clear->setObjectName(QString::fromUtf8("pushButton_clear"));
+        sizePolicy1.setHeightForWidth(pushButton_clear->sizePolicy().hasHeightForWidth());
+        pushButton_clear->setSizePolicy(sizePolicy1);
+        pushButton_clear->setFont(font2);
+        pushButton_clear->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  background-color: rgb(254,99,71);\n"
+"  border-radius: 4px;\n"
+"  padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_clear, 1, 0, 1, 1);
+
+        pushButton_cos = new QPushButton(centralwidget);
+        pushButton_cos->setObjectName(QString::fromUtf8("pushButton_cos"));
+        sizePolicy1.setHeightForWidth(pushButton_cos->sizePolicy().hasHeightForWidth());
+        pushButton_cos->setSizePolicy(sizePolicy1);
+        pushButton_cos->setFont(font3);
+        pushButton_cos->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #000;\n"
+"  background-color: rgb(215, 215, 215);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_cos, 6, 4, 1, 1);
+
+        pushButton_previos_answer = new QPushButton(centralwidget);
+        pushButton_previos_answer->setObjectName(QString::fromUtf8("pushButton_previos_answer"));
+        sizePolicy1.setHeightForWidth(pushButton_previos_answer->sizePolicy().hasHeightForWidth());
+        pushButton_previos_answer->setSizePolicy(sizePolicy1);
+        pushButton_previos_answer->setFont(font3);
+        pushButton_previos_answer->setStyleSheet(QString::fromUtf8("/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */\n"
+"\n"
+"QPushButton {\n"
+"  color: #000;\n"
+"  background-color: rgb(215, 215, 215);\n"
+"  border-radius: 4px;\n"
+"  padding: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);\n"
+"}"));
+
+        keypad_grid->addWidget(pushButton_previos_answer, 6, 2, 1, 1);
 
         pushButton_pi = new QPushButton(centralwidget);
         pushButton_pi->setObjectName(QString::fromUtf8("pushButton_pi"));
@@ -922,13 +925,22 @@ public:
 
         keypad_grid->addWidget(pushButton_pi, 6, 3, 1, 1);
 
+        comboBox = new QComboBox(centralwidget);
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->addItem(QString());
+        comboBox->setObjectName(QString::fromUtf8("comboBox"));
+        comboBox->setEnabled(true);
+
+        keypad_grid->addWidget(comboBox, 0, 0, 1, 1);
+
 
         verticalLayout_2->addLayout(keypad_grid);
 
         MainWindow->setCentralWidget(centralwidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 441, 21));
+        menuBar->setGeometry(QRect(0, 0, 437, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuThemes = new QMenu(menuFile);
@@ -961,87 +973,35 @@ public:
         Error_Label->setText(QString());
         label_2->setText(QApplication::translate("MainWindow", "0", nullptr));
         label->setText(QApplication::translate("MainWindow", "0", nullptr));
-        pushButton_divide->setText(QApplication::translate("MainWindow", "\303\267", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_divide->setShortcut(QApplication::translate("MainWindow", "/", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_6->setText(QApplication::translate("MainWindow", "6", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_6->setShortcut(QApplication::translate("MainWindow", "6", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_mod->setText(QApplication::translate("MainWindow", "mod", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_mod->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_9->setText(QApplication::translate("MainWindow", "9", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_9->setShortcut(QApplication::translate("MainWindow", "9", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_minus->setText(QApplication::translate("MainWindow", "-", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_minus->setShortcut(QApplication::translate("MainWindow", "-", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_Log->setText(QApplication::translate("MainWindow", "Log", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_Log->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_sin->setText(QApplication::translate("MainWindow", "sin", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_sin->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_3->setText(QApplication::translate("MainWindow", "3", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_3->setShortcut(QApplication::translate("MainWindow", "3", nullptr));
-#endif // QT_NO_SHORTCUT
         pushButton_Factorial->setText(QApplication::translate("MainWindow", "!", nullptr));
 #ifndef QT_NO_SHORTCUT
         pushButton_Factorial->setShortcut(QApplication::translate("MainWindow", "*", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_plusMinus->setText(QApplication::translate("MainWindow", "+/-", nullptr));
-        pushButton_7->setText(QApplication::translate("MainWindow", "7", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_7->setShortcut(QApplication::translate("MainWindow", "7", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_cos->setText(QApplication::translate("MainWindow", "cos", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_cos->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_clear->setText(QApplication::translate("MainWindow", "C", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_clear->setShortcut(QApplication::translate("MainWindow", "C", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_0->setText(QApplication::translate("MainWindow", "0", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_0->setShortcut(QApplication::translate("MainWindow", "0", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_Sqrt->setText(QApplication::translate("MainWindow", "\342\210\232", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_Sqrt->setShortcut(QApplication::translate("MainWindow", "*", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_8->setText(QApplication::translate("MainWindow", "8", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_8->setShortcut(QApplication::translate("MainWindow", "8", nullptr));
 #endif // QT_NO_SHORTCUT
         pushButton_multiply->setText(QApplication::translate("MainWindow", "x", nullptr));
 #ifndef QT_NO_SHORTCUT
         pushButton_multiply->setShortcut(QApplication::translate("MainWindow", "*", nullptr));
 #endif // QT_NO_SHORTCUT
-        pushButton_add->setText(QApplication::translate("MainWindow", " + ", nullptr));
+        pushButton_7->setText(QApplication::translate("MainWindow", "7", nullptr));
 #ifndef QT_NO_SHORTCUT
-        pushButton_add->setShortcut(QApplication::translate("MainWindow", "+", nullptr));
+        pushButton_7->setShortcut(QApplication::translate("MainWindow", "7", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_9->setText(QApplication::translate("MainWindow", "9", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_9->setShortcut(QApplication::translate("MainWindow", "9", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_Sqrt->setText(QApplication::translate("MainWindow", "\342\210\232", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_Sqrt->setShortcut(QApplication::translate("MainWindow", "*", nullptr));
 #endif // QT_NO_SHORTCUT
         pushButton_Power->setText(QApplication::translate("MainWindow", "^", nullptr));
 #ifndef QT_NO_SHORTCUT
         pushButton_Power->setShortcut(QApplication::translate("MainWindow", "*", nullptr));
 #endif // QT_NO_SHORTCUT
-        pushButton_sigmoid->setText(QApplication::translate("MainWindow", "sigmoid", nullptr));
+        pushButton_8->setText(QApplication::translate("MainWindow", "8", nullptr));
 #ifndef QT_NO_SHORTCUT
-        pushButton_sigmoid->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
+        pushButton_8->setShortcut(QApplication::translate("MainWindow", "8", nullptr));
 #endif // QT_NO_SHORTCUT
-        pushButton_4->setText(QApplication::translate("MainWindow", "4", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_4->setShortcut(QApplication::translate("MainWindow", "4", nullptr));
-#endif // QT_NO_SHORTCUT
+        pushButton_plusMinus->setText(QApplication::translate("MainWindow", "+/-", nullptr));
 #ifndef QT_NO_TOOLTIP
         pushButton_equals->setToolTip(QString());
 #endif // QT_NO_TOOLTIP
@@ -1049,38 +1009,94 @@ public:
 #ifndef QT_NO_SHORTCUT
         pushButton_equals->setShortcut(QApplication::translate("MainWindow", "Enter", nullptr));
 #endif // QT_NO_SHORTCUT
+        pushButton_mod->setText(QApplication::translate("MainWindow", "mod", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_mod->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_Log->setText(QApplication::translate("MainWindow", "Log", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_Log->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
+#endif // QT_NO_SHORTCUT
         pushButton_1->setText(QApplication::translate("MainWindow", "1", nullptr));
 #ifndef QT_NO_SHORTCUT
         pushButton_1->setShortcut(QApplication::translate("MainWindow", "1", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_percent->setText(QApplication::translate("MainWindow", "%", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_percent->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_exponent->setText(QApplication::translate("MainWindow", "exp", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_exponent->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_dot->setText(QApplication::translate("MainWindow", ".", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_dot->setShortcut(QApplication::translate("MainWindow", ".", nullptr));
-#endif // QT_NO_SHORTCUT
-        pushButton_2->setText(QApplication::translate("MainWindow", "2", nullptr));
-#ifndef QT_NO_SHORTCUT
-        pushButton_2->setShortcut(QApplication::translate("MainWindow", "2", nullptr));
 #endif // QT_NO_SHORTCUT
         pushButton_5->setText(QApplication::translate("MainWindow", "5", nullptr));
 #ifndef QT_NO_SHORTCUT
         pushButton_5->setShortcut(QApplication::translate("MainWindow", "5", nullptr));
 #endif // QT_NO_SHORTCUT
-        pushButton_exponent_digit->setText(QApplication::translate("MainWindow", "e", nullptr));
+        pushButton_4->setText(QApplication::translate("MainWindow", "4", nullptr));
 #ifndef QT_NO_SHORTCUT
-        pushButton_exponent_digit->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
+        pushButton_4->setShortcut(QApplication::translate("MainWindow", "4", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_add->setText(QApplication::translate("MainWindow", " + ", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_add->setShortcut(QApplication::translate("MainWindow", "+", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_dot->setText(QApplication::translate("MainWindow", ".", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_dot->setShortcut(QApplication::translate("MainWindow", ".", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_6->setText(QApplication::translate("MainWindow", "6", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_6->setShortcut(QApplication::translate("MainWindow", "6", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_divide->setText(QApplication::translate("MainWindow", "\303\267", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_divide->setShortcut(QApplication::translate("MainWindow", "/", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_percent->setText(QApplication::translate("MainWindow", "%", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_percent->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_minus->setText(QApplication::translate("MainWindow", "-", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_minus->setShortcut(QApplication::translate("MainWindow", "-", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_3->setText(QApplication::translate("MainWindow", "3", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_3->setShortcut(QApplication::translate("MainWindow", "3", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_sigmoid->setText(QApplication::translate("MainWindow", "sigmoid", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_sigmoid->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_2->setText(QApplication::translate("MainWindow", "2", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_2->setShortcut(QApplication::translate("MainWindow", "2", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_0->setText(QApplication::translate("MainWindow", "0", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_0->setShortcut(QApplication::translate("MainWindow", "0", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_exponent->setText(QApplication::translate("MainWindow", "exp", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_exponent->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_sin->setText(QApplication::translate("MainWindow", "sin", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_sin->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_clear->setText(QApplication::translate("MainWindow", "C", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_clear->setShortcut(QApplication::translate("MainWindow", "C", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_cos->setText(QApplication::translate("MainWindow", "cos", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_cos->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
+#endif // QT_NO_SHORTCUT
+        pushButton_previos_answer->setText(QApplication::translate("MainWindow", "ans", nullptr));
+#ifndef QT_NO_SHORTCUT
+        pushButton_previos_answer->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
 #endif // QT_NO_SHORTCUT
         pushButton_pi->setText(QApplication::translate("MainWindow", "pi", nullptr));
 #ifndef QT_NO_SHORTCUT
         pushButton_pi->setShortcut(QApplication::translate("MainWindow", "%", nullptr));
 #endif // QT_NO_SHORTCUT
+        comboBox->setItemText(0, QApplication::translate("MainWindow", "rad", nullptr));
+        comboBox->setItemText(1, QApplication::translate("MainWindow", "degrees", nullptr));
+        comboBox->setItemText(2, QApplication::translate("MainWindow", "Grad", nullptr));
+
         menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));
         menuThemes->setTitle(QApplication::translate("MainWindow", "Themes", nullptr));
     } // retranslateUi
