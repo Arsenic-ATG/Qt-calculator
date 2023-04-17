@@ -1,11 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QDebug>
-#include <iostream>
-#define FACTORIAL_INFINITY 15000
-#define RAD 57.2957795
-#define PI 3.14159265358979323
-#define GRAD 63.661977237
 double firstNum;
 bool user_is_typing_secondNumber=false;
 double answer=0;

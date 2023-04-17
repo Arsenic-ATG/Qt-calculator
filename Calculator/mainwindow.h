@@ -2,7 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include <math.h>
+#include <QDebug>
+#include <iostream>
+#define FACTORIAL_INFINITY 15000
+#define RAD 57.2957795
+#define PI 3.14159265358979323
+#define GRAD 63.661977237
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
