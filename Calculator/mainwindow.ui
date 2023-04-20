@@ -27,7 +27,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">/*Change the background color */
-background-color: #fff;</string>
+background : url(&quot;:/resources/Images/theme2.png&quot;);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
@@ -91,11 +91,17 @@ background-color : white;
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QLabel" name="label_2">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
            <height>15</height>
           </size>
+         </property>
+         <property name="mouseTracking">
+          <bool>false</bool>
          </property>
          <property name="autoFillBackground">
           <bool>false</bool>
@@ -496,6 +502,9 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
       </item>
       <item row="1" column="1">
        <widget class="QPushButton" name="pushButton_plusMinus">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1528,6 +1537,8 @@ QPushButton:pressed {
      </layout>
     </item>
    </layout>
+   <zorder>verticalWidget</zorder>
+   <zorder>Error_Label</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -1535,7 +1546,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>455</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1546,11 +1557,27 @@ QPushButton:pressed {
      <property name="title">
       <string>Themes</string>
      </property>
-     <addaction name="actionDark"/>
-     <addaction name="actionLight"/>
+     <widget class="QMenu" name="menuBasic_colors">
+      <property name="title">
+       <string>Basic colors</string>
+      </property>
+      <addaction name="actionCyan"/>
+      <addaction name="actionLight"/>
+      <addaction name="actionDark"/>
+     </widget>
+     <widget class="QMenu" name="menuImages">
+      <property name="title">
+       <string>Images</string>
+      </property>
+      <addaction name="actiontheme_1"/>
+      <addaction name="actiontheme_2"/>
+      <addaction name="actiontheme_3"/>
+      <addaction name="actiontheme_4"/>
+     </widget>
      <addaction name="separator"/>
      <addaction name="separator"/>
-     <addaction name="actionCyan"/>
+     <addaction name="menuImages"/>
+     <addaction name="menuBasic_colors"/>
     </widget>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
@@ -1598,6 +1625,26 @@ QPushButton:pressed {
    </property>
    <property name="shortcut">
     <string>F3</string>
+   </property>
+  </action>
+  <action name="actiontheme_1">
+   <property name="text">
+    <string>theme_1</string>
+   </property>
+  </action>
+  <action name="actiontheme_2">
+   <property name="text">
+    <string>theme_2</string>
+   </property>
+  </action>
+  <action name="actiontheme_3">
+   <property name="text">
+    <string>theme_3</string>
+   </property>
+  </action>
+  <action name="actiontheme_4">
+   <property name="text">
+    <string>theme_4</string>
    </property>
   </action>
  </widget>
