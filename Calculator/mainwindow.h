@@ -38,6 +38,11 @@ private slots:
     void on_actionExit_triggered();
     void on_actionDark_triggered();
     void on_actionLight_triggered();
+    void on_actionCyan_triggered();
+    void on_actiontheme_1_triggered();
+    void on_actiontheme_2_triggered();
+    void on_actiontheme_3_triggered();
+    void on_actiontheme_4_triggered();
 
 public:
     void connect_buttons(Ui::MainWindow * ui,MainWindow * window);
