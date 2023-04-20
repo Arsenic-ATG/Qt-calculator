@@ -27,7 +27,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">/*Change the background color */
-background : url(&quot;:/resources/Images/theme2.png&quot;);</string>
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
