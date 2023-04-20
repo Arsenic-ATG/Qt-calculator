@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>437</width>
+    <width>455</width>
     <height>520</height>
    </rect>
   </property>
@@ -1503,7 +1503,7 @@ QPushButton:pressed {
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
+      <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
        <widget class="QComboBox" name="comboBox">
         <property name="enabled">
          <bool>true</bool>
@@ -1534,8 +1534,8 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>437</width>
-     <height>21</height>
+     <width>455</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1548,6 +1548,9 @@ QPushButton:pressed {
      </property>
      <addaction name="actionDark"/>
      <addaction name="actionLight"/>
+     <addaction name="separator"/>
+     <addaction name="separator"/>
+     <addaction name="actionCyan"/>
     </widget>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
@@ -1577,10 +1580,24 @@ QPushButton:pressed {
    <property name="text">
     <string>Dark</string>
    </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
   </action>
   <action name="actionLight">
    <property name="text">
     <string>Light</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
+   </property>
+  </action>
+  <action name="actionCyan">
+   <property name="text">
+    <string>cyan</string>
+   </property>
+   <property name="shortcut">
+    <string>F3</string>
    </property>
   </action>
  </widget>

@@ -38,6 +38,7 @@ private slots:
     void on_actionExit_triggered();
     void on_actionDark_triggered();
     void on_actionLight_triggered();
+    void on_actionCyan_triggered();
 
 public:
     void connect_buttons(Ui::MainWindow * ui,MainWindow * window);

@@ -406,9 +406,10 @@ void MainWindow::on_actionExit_triggered()
 void MainWindow::on_actionDark_triggered()
 {
     ui->centralwidget->setStyleSheet("QWidget { background-color: #000; }");
+    ui->verticalWidget->setStyleSheet("QWidget { background-color: grey; }");
     ui->label_2->setStyleSheet("QLabel { background-color: grey; }");
     ui->label->setStyleSheet("QLabel { background-color: grey; }");
-    ui->verticalWidget->setStyleSheet("QWidget { background-color: grey; }");
+    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
     ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }");
     ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }");
     ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }");
@@ -425,6 +426,7 @@ void MainWindow::on_actionDark_triggered()
 
 void MainWindow::on_actionLight_triggered()
 {
+    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
     ui->centralwidget->setStyleSheet("QWidget { background-color: #fff; }");
     ui->label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239); }");
     ui->label->setStyleSheet("QLabel { background-color: rgb(239,239,239); }");
@@ -441,4 +443,25 @@ void MainWindow::on_actionLight_triggered()
     ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }");
     ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }");
 }
+
+void MainWindow::on_actionCyan_triggered()
+{
+    ui->comboBox->setStyleSheet("QComboBox {background-color: #009575;}");
+    ui->centralwidget->setStyleSheet("QWidget { background-color: #002575; }");
+    ui->label_2->setStyleSheet("QLabel { background-color: rgb(0,100,100); }");
+    ui->label->setStyleSheet("QLabel { background-color: rgb(0,100,100); }");
+    ui->verticalWidget->setStyleSheet("QWidget { background-color: rgb(0,100,100); }");
+    ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+    ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+    ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+    ui->pushButton_3->setStyleSheet("QPushButton { background-color: rgb(0,100,100);; border-radius: 4px; padding: 10px; }");
+    ui->pushButton_4->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+    ui->pushButton_5->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+    ui->pushButton_6->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+    ui->pushButton_7->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+    ui->pushButton_8->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+    ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+    ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }");
+}
+
 
