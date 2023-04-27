@@ -5,6 +5,7 @@
 #include <math.h>
 #include <QDebug>
 #include <iostream>
+#include <binary_operation_handler.h>
 #define FACTORIAL_INFINITY 15000
 #define RAD 57.2957795
 #define PI 3.14159265358979323
@@ -15,6 +16,8 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
+    Binary_Operation_Handler binary_handler;
+
     Q_OBJECT
 
 public:
