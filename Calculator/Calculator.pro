@@ -17,11 +17,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     binary_operation_handler.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    unary_operation_handler.cpp
 
 HEADERS += \
     binary_operation_handler.h \
-    mainwindow.h
+    mainwindow.h \
+    unary_operation_handler.h
 
 FORMS += \
     mainwindow.ui

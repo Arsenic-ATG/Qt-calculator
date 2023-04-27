@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <iostream>
 #include <binary_operation_handler.h>
+
 #define FACTORIAL_INFINITY 15000
 #define RAD 57.2957795
 #define PI 3.14159265358979323

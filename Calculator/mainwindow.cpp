@@ -166,6 +166,7 @@ void MainWindow::on_pushButton_equals_released()
     QString symbol;
     secondNum = ui->label->text().toDouble();
     if(user_is_typing_secondNumber){
+
         binary_handler.Binary_operation_triggered(symbol,firstNum,secondNum,ui);
         user_is_typing_secondNumber=false;
         answer=input.toDouble();
