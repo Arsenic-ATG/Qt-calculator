@@ -6,7 +6,8 @@
 #include <QDebug>
 #include <iostream>
 #include <binary_operation_handler.h>
-
+#include<unary_operation_handler.h>
+#include<equals_handler.h>
 #define FACTORIAL_INFINITY 15000
 #define RAD 57.2957795
 #define PI 3.14159265358979323
@@ -18,6 +19,8 @@ QT_END_NAMESPACE
 class MainWindow : public QMainWindow
 {
     Binary_Operation_Handler binary_handler;
+    Unary_operation_handler unary_handler;
+    Equals_handler equal_handler;
 
     Q_OBJECT
 
@@ -31,7 +34,7 @@ public:
 
 private slots:
 
-    double factorial(int labelnumber);
+//    double factorial(int labelnumber);
     void digit_pressed();
     void special_number_pressed();
     void on_pushButton_dot_released();

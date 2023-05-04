@@ -13,15 +13,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
-
 SOURCES += \
     binary_operation_handler.cpp \
+    equals_handler.cpp \
     main.cpp \
     mainwindow.cpp \
     unary_operation_handler.cpp
 
 HEADERS += \
     binary_operation_handler.h \
+    binary_operation_handler.h \
+    equals_handler.h \
     mainwindow.h \
     unary_operation_handler.h
 

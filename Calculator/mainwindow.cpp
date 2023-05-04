@@ -1,9 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 double firstNum;
+double secondNum;
 bool user_is_typing_secondNumber=false;
 double answer=0;
 QString arithmetic_expression;
+QString input;
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -120,7 +122,7 @@ void MainWindow::digit_pressed()
         }
     }
     ui->label->setText(input);
-
+    secondNum=input.toDouble();
 }
 
 
@@ -160,14 +162,11 @@ void MainWindow::on_pushButton_clear_released()
 void MainWindow::on_pushButton_equals_released()
 {
 
-    double labelnumber,secondNum;
-    QString input;
-    labelnumber=0;
-    QString symbol;
-    secondNum = ui->label->text().toDouble();
-    if(user_is_typing_secondNumber){
 
-        binary_handler.Binary_operation_triggered(symbol,firstNum,secondNum,ui);
+
+    if(user_is_typing_secondNumber){
+        secondNum = ui->label->text().toDouble();
+        input=equal_handler.Equals_Button_triggered(firstNum,secondNum,ui);
         user_is_typing_secondNumber=false;
         answer=input.toDouble();
         arithmetic_expression=ui->label_2->text();
@@ -185,72 +184,7 @@ void MainWindow::on_pushButton_equals_released()
 void MainWindow::unary_operation_pressed()
 {
     QPushButton* button = (QPushButton *)sender();
-    double labelnumber;
-    QString input;
-    QString symbol;
-    ui->Error_Label->setText("");
-    labelnumber = (ui->label->text()).toDouble();
-    if(button->text() == "+/-")
-    {
-        input = QString::number(labelnumber*-1,'g',15);
-    }
-
-    else if(button->text() == "%")
-    {
-        input = QString::number(labelnumber*0.01,'g',15);
-    }
-
-    else if(button->text()=="Log"){
-        if((ui->label->text().toDouble())<=0){
-            ui->Error_Label->setText("Error message: Log input cant be less then 0");
-        }
-        else{
-            input = QString::number(log10(labelnumber),'g',15);
-        }
-    }
-
-    else if(button->text() == "√")
-    {
-        input = QString::number(sqrt(labelnumber),'g',15);
-    }
-
-    else if(button->text() == "!")
-    {
-
-        input = QString::number(factorial(int(labelnumber)),'g',15);
-    }
-
-    else if(button->text() == "exp"){
-        input = QString::number(exp(labelnumber),'g',15);
-    }
-    else if(button->text() == "sigmoid"){
-        input = QString::number(1/(1+exp(-labelnumber)),'g',15);
-    }
-
-    else if(button->text() == "sin"){
-        if(ui->comboBox->currentIndex()==1){input = QString::number(sin(labelnumber/RAD),'g',15);}
-        else if(ui->comboBox->currentIndex()==2){input = QString::number(cos(labelnumber/GRAD),'g',15);}
-        else input = QString::number(sin(labelnumber),'g',15);
-
-    }
-    else if(button->text() == "cos"){
-        if(ui->comboBox->currentIndex()==1){input = QString::number(cos(labelnumber/RAD),'g',15);}
-        else if(ui->comboBox->currentIndex()==2){input = QString::number(cos(labelnumber/GRAD),'g',15);}
-        else input = QString::number(cos(labelnumber),'g',15);
-    }
-
-
-
-
-    symbol=button->text();
-    if(button->text() == "!"){
-        ui->label_2->setText("(" + QString::number(labelnumber) + ")" +symbol + " = ");
-    }
-    else{
-    ui->label_2->setText(symbol+ "(" + QString::number(labelnumber)+ ")" + " = ");
-    }
-    ui->label->setText(input);
-    answer=input.toDouble();
+    answer=unary_handler.Unary_operation_triggered(button,ui);
     arithmetic_expression=ui->label_2->text();
 
 }
@@ -260,44 +194,9 @@ void MainWindow::unary_operation_pressed()
 
 void MainWindow::binary_operation_pressed()
 {
-    ui->Error_Label->setText("");
     QPushButton* button = (QPushButton *)sender();
-    //double labelnumber;
-    //QString input;
-
-    firstNum = ui->label->text().toDouble();
-    button->setChecked(true);
-    user_is_typing_secondNumber=false;
-
-    if(ui->pushButton_add->isChecked())
-    {
-        ui->label_2->setText(ui->label->text() + " + ");
-    }
-
-    else if(ui->pushButton_minus->isChecked())
-    {
-        ui->label_2->setText(ui->label->text() + " - ");
-    }
-
-    else if(ui->pushButton_multiply->isChecked())
-    {
-        ui->label_2->setText(ui->label->text() + " x ");
-    }
-
-    else if(ui->pushButton_divide->isChecked())
-    {
-        ui->label_2->setText(ui->label->text() + " / ");
-    }
-    else if(ui->pushButton_Power->isChecked())
-    {
-        ui->label_2->setText(ui->label->text() + " ^ ");
-    }
-
-    else if(ui->pushButton_mod->isChecked())
-    {
-        ui->label_2->setText(ui->label->text() + " mod ");
-    }
-
+    firstNum=ui->label->text().toDouble();
+    binary_handler.Binary_operation_pressed(ui,button);
 
 }
 
@@ -305,8 +204,16 @@ void MainWindow::binary_operation_pressed()
 void MainWindow::special_number_pressed(){
     QPushButton* button = (QPushButton *)sender();
     if(button->text()=="ans"){
-        ui->label->setText(QString::number(answer,'g',15));
-        if(!user_is_typing_secondNumber){ui->label_2->setText(ui->label_2->text()+ "answer");user_is_typing_secondNumber=true;}
+
+        if(!user_is_typing_secondNumber){
+            if(ui->label->text()=="0"){
+                ui->label_2->setText("answer");
+            }
+            else{
+                ui->label_2->setText(ui->label_2->text()+ "answer");
+            }
+            ui->label->setText(QString::number(answer,'g',15));
+        }
         else{ui->label_2->setText(arithmetic_expression);}
     }
     else if(button->text()=="pi"){
@@ -317,20 +224,7 @@ void MainWindow::special_number_pressed(){
 
 
 
-//implemented opertions
 
-double MainWindow::factorial(int labelnumber){
-    if(labelnumber<=1){
-        return 1;
-    }
-    else if(labelnumber>=FACTORIAL_INFINITY){
-        return INFINITY;
-    }
-    else {
-        labelnumber-=1;
-        return (labelnumber+1)*factorial(labelnumber);
-    }
-}
 
 
 
