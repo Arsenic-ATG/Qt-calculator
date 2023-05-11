@@ -5,7 +5,7 @@ Unary_operation_handler::Unary_operation_handler()
 
 }
 
-double Unary_operation_handler::Unary_operation_triggered(QPushButton* button,Ui::MainWindow* ui)
+void Unary_operation_handler::Unary_operation_triggered(QPushButton* button,Ui::MainWindow* ui)
 {
     double labelnumber;
     QString input;
@@ -72,7 +72,6 @@ double Unary_operation_handler::Unary_operation_triggered(QPushButton* button,Ui
     ui->label_2->setText(symbol+ "(" + QString::number(labelnumber)+ ")" + " = ");
     }
     ui->label->setText(input);
-    return input.toDouble();
 }
 
 

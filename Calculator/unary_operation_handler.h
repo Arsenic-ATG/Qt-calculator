@@ -11,7 +11,7 @@ class Unary_operation_handler
 {
 public:
     Unary_operation_handler();
-    double Unary_operation_triggered(QPushButton* button,Ui::MainWindow * ui);
+    void Unary_operation_triggered(QPushButton* button,Ui::MainWindow * ui);
 private:
     static double factorial(int labelnumber);
 };

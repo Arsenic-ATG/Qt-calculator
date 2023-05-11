@@ -27,10 +27,13 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+    const QStringList unary_buttonNames = {"pushButton_plusMinus", "pushButton_percent", "pushButton_Log",
+                                          "pushButton_Sqrt", "pushButton_Factorial", "pushButton_exponent",
+                                          "pushButton_sigmoid", "pushButton_sin", "pushButton_cos", "pushButton_pi"};
+    const QStringList binary_buttonNames={"pushButton_multiply",
+                                          "pushButton_add","pushButton_minus","pushButton_divide", "pushButton_Power","pushButton_mod"};
 public:
-    Ui::MainWindow *ui;
-
+    QScopedPointer<Ui::MainWindow> ui;
 
 private slots:
 
@@ -53,7 +56,7 @@ private slots:
 
 public:
     void connect_buttons(Ui::MainWindow * ui,MainWindow * window);
-    void connect_digits(Ui::MainWindow * ui,MainWindow * window);
+    void connect_digits(MainWindow * window);
     //void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window);
     void connect_unary(Ui::MainWindow * ui,MainWindow * window);
     void connect_binary(Ui::MainWindow * ui,MainWindow * window);
