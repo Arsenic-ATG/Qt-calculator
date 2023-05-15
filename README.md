@@ -11,7 +11,7 @@ The calculator can be used on all platforms(altough the gui may differ on each p
 **Qt creator** or **Qmake** build system set up in your IDE
 
 ### Setting up Qt 💻
-* Start by installing the Qt SDK from [qt.io]([https://www.qt.io/download](https://www.qt.io/offline-installers)).Since the online installers can be pretty buggy ,it was decided to go with the offline Open Source version
+* Start by installing the Qt SDK from [qt.io](https://www.qt.io/download). Since the online installers can be pretty buggy ,it was decided to go with the offline Open Source version
 * The installer does not include any compailer on its default install.Make sure you select the fitting mingw compailer.
 * As mentioned above,Qt Creator is a sort of an IDE with internal build tools. So currently, it's a good idea to install this.
 * We will not be using CMake since QMake comes bundled with the creator
