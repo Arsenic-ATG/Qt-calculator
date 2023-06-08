@@ -104,11 +104,13 @@ void MainWindow::digit_pressed()
         else
         {
             labelnumber = (ui->label->text() + button->text()).toDouble();
-            input = QString::number(labelnumber,'g',15);
+
         }
     }
+    input = QString::number(labelnumber,'g',15);
     ui->label->setText(input);
     secondNum=input.toDouble();
+
 }
 
 
@@ -183,7 +185,6 @@ void MainWindow::binary_operation_pressed()
     QPushButton* button = (QPushButton *)sender();
     firstNum=ui->label->text().toDouble();
     binary_handler.Binary_operation_pressed(ui.data(),button);
-
 }
 
 
@@ -191,7 +192,7 @@ void MainWindow::special_number_pressed(){
     QPushButton* button = (QPushButton *)sender();
     if(button->text()=="ans"){
 
-        if(!user_is_typing_secondNumber){
+        if(user_is_typing_secondNumber){
             if(ui->label->text()=="0"){
                 ui->label_2->setText("answer");
             }
@@ -200,7 +201,8 @@ void MainWindow::special_number_pressed(){
             }
             ui->label->setText(QString::number(equal_handler.answer,'g',15));
         }
-        else{ui->label_2->setText(equal_handler.arithmetic_expression);}
+        else{ui->label_2->setText(equal_handler.arithmetic_expression);
+        ui->label->setText(QString::number(equal_handler.answer,'g',15));}
     }
     else if(button->text()=="pi"){
         ui->label->setText(QString::number(PI,'g',15));

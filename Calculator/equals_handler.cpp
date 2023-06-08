@@ -20,12 +20,7 @@ QString Equals_handler::Equals_Button_triggered(double firstNum, double secondNu
 
     }
 
-    else if(ui->pushButton_add->isChecked())
-    {
-        labelnumber = firstNum + secondNum;
-        ui->pushButton_add->setChecked(false);
-        symbol = " + ";
-    }
+
 
     else if(ui->pushButton_minus->isChecked())
     {
@@ -67,10 +62,17 @@ QString Equals_handler::Equals_Button_triggered(double firstNum, double secondNu
         }
     }
 
-
+    else if(ui->pushButton_add->isChecked())
+    {
+        labelnumber = firstNum + secondNum;
+        ui->pushButton_add->setChecked(false);
+        symbol = " + ";
+    }
     // Setting the equation label
-    ui->label_2->setText(QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15) + " = ");
+    arithmetic_expression=QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15) + " = ";
+    ui->label_2->setText(arithmetic_expression);
     input = QString::number(labelnumber,'g',15);
+    answer=labelnumber;
     ui->label->setText(input);
     return input;
 }
