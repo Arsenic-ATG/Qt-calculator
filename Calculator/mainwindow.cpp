@@ -3,15 +3,15 @@
 double firstNum;
 double secondNum;
 bool user_is_typing_secondNumber=false;
-double answer=0;
-QString arithmetic_expression;
+
 QString input;
 MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
     ui->Error_Label->setStyleSheet("QLabel {color : red;}");
 
-    connect_buttons(ui,this);
+    connect_buttons(ui.data(),this);
 
     ui->pushButton_add->setCheckable(true);
     ui->pushButton_multiply->setCheckable(true);
@@ -25,52 +25,41 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 }
 
 void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window){
-    MainWindow::connect_digits(ui,window);
+    MainWindow::connect_digits(window);
     MainWindow::connect_unary(ui,window);
     MainWindow::connect_binary(ui,window);
     MainWindow::connect_special_digits(ui,window);
 }
 
 
-void MainWindow::connect_digits(Ui::MainWindow * ui,MainWindow * window){
-    QObject::connect(ui->pushButton_0,SIGNAL(released()),window,SLOT(digit_pressed()));
-    QObject::connect(ui->pushButton_1,SIGNAL(released()),window,SLOT(digit_pressed()));
-    QObject::connect(ui->pushButton_2,SIGNAL(released()),window,SLOT(digit_pressed()));
-    QObject::connect(ui->pushButton_3,SIGNAL(released()),window,SLOT(digit_pressed()));
-    QObject::connect(ui->pushButton_4,SIGNAL(released()),window,SLOT(digit_pressed()));
-    QObject::connect(ui->pushButton_5,SIGNAL(released()),window,SLOT(digit_pressed()));
-    QObject::connect(ui->pushButton_6,SIGNAL(released()),window,SLOT(digit_pressed()));
-    QObject::connect(ui->pushButton_7,SIGNAL(released()),window,SLOT(digit_pressed()));
-    QObject::connect(ui->pushButton_8,SIGNAL(released()),window,SLOT(digit_pressed()));
-    QObject::connect(ui->pushButton_9,SIGNAL(released()),window,SLOT(digit_pressed()));
+void MainWindow::connect_digits(MainWindow * window){
+    for(int i=1; i<=9; i++){
+
+        QPushButton *button = qobject_cast<QPushButton*>(window->findChild<QObject*>("pushButton_" + QString::number(i)));
+        QObject::connect(button, SIGNAL(released()), window, SLOT(digit_pressed()));
+    }
+
 
 
 }
 
 
 void MainWindow::connect_unary(Ui::MainWindow * ui,MainWindow * window){
-    QObject::connect(ui->pushButton_plusMinus,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_percent,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_Log,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_Sqrt,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_Factorial,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_exponent,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_sigmoid,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_sin,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_cos,SIGNAL(released()),window,SLOT(unary_operation_pressed()));
-    QObject::connect(ui->pushButton_pi,SIGNAL(released()),window,SLOT(digit_pressed()));
+    for (const auto& name : unary_buttonNames) {
+            QPushButton *button = qobject_cast<QPushButton*>(window->findChild<QPushButton*>(name));
+            QObject::connect(button, &QPushButton::released, window, &MainWindow::unary_operation_pressed);
+        }
 
 
 }
 
 
 void MainWindow::connect_binary(Ui::MainWindow * ui,MainWindow * window){
-    QObject::connect(ui->pushButton_multiply,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
-    QObject::connect(ui->pushButton_add,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
-    QObject::connect(ui->pushButton_minus,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
-    QObject::connect(ui->pushButton_divide,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
-    QObject::connect(ui->pushButton_Power,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
-    QObject::connect(ui->pushButton_mod,SIGNAL(released()),window,SLOT(binary_operation_pressed()));
+    for (const auto& name : binary_buttonNames) {
+            QPushButton *button = qobject_cast<QPushButton*>(window->findChild<QPushButton*>(name));
+            QObject::connect(button, &QPushButton::released, window, &MainWindow::binary_operation_pressed);
+        }
+
 }
 
 void MainWindow::connect_special_digits(Ui::MainWindow *ui, MainWindow *window){
@@ -81,7 +70,7 @@ void MainWindow::connect_special_digits(Ui::MainWindow *ui, MainWindow *window){
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    ui.reset();
 }
 
 
@@ -97,15 +86,12 @@ MainWindow::~MainWindow()
 void MainWindow::digit_pressed()
 {
     QPushButton * button = (QPushButton *)sender();
-    QString input;
     double labelnumber;
 
     if((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked() || ui->pushButton_Power->isChecked() || ui->pushButton_mod->isChecked()) && (!user_is_typing_secondNumber))
     {
-        //ui->pushButton_equals->setEnabled(false);
         user_is_typing_secondNumber=true;
         labelnumber = button->text().toDouble();
-        input = QString::number(labelnumber,'g',15);
     }
 
     else
@@ -118,11 +104,13 @@ void MainWindow::digit_pressed()
         else
         {
             labelnumber = (ui->label->text() + button->text()).toDouble();
-            input = QString::number(labelnumber,'g',15);
+
         }
     }
+    input = QString::number(labelnumber,'g',15);
     ui->label->setText(input);
     secondNum=input.toDouble();
+
 }
 
 
@@ -166,10 +154,10 @@ void MainWindow::on_pushButton_equals_released()
 
     if(user_is_typing_secondNumber){
         secondNum = ui->label->text().toDouble();
-        input=equal_handler.Equals_Button_triggered(firstNum,secondNum,ui);
+        input=equal_handler.Equals_Button_triggered(firstNum,secondNum,ui.data());
         user_is_typing_secondNumber=false;
-        answer=input.toDouble();
-        arithmetic_expression=ui->label_2->text();
+//        answer=input.toDouble();
+//        arithmetic_expression=ui->label_2->text();
     }
 }
 
@@ -184,8 +172,8 @@ void MainWindow::on_pushButton_equals_released()
 void MainWindow::unary_operation_pressed()
 {
     QPushButton* button = (QPushButton *)sender();
-    answer=unary_handler.Unary_operation_triggered(button,ui);
-    arithmetic_expression=ui->label_2->text();
+    /*answer=*/unary_handler.Unary_operation_triggered(button,ui.data());
+//    arithmetic_expression=ui->label_2->text();
 
 }
 
@@ -196,8 +184,7 @@ void MainWindow::binary_operation_pressed()
 {
     QPushButton* button = (QPushButton *)sender();
     firstNum=ui->label->text().toDouble();
-    binary_handler.Binary_operation_pressed(ui,button);
-
+    binary_handler.Binary_operation_pressed(ui.data(),button);
 }
 
 
@@ -205,16 +192,17 @@ void MainWindow::special_number_pressed(){
     QPushButton* button = (QPushButton *)sender();
     if(button->text()=="ans"){
 
-        if(!user_is_typing_secondNumber){
+        if(user_is_typing_secondNumber){
             if(ui->label->text()=="0"){
                 ui->label_2->setText("answer");
             }
             else{
                 ui->label_2->setText(ui->label_2->text()+ "answer");
             }
-            ui->label->setText(QString::number(answer,'g',15));
+            ui->label->setText(QString::number(equal_handler.answer,'g',15));
         }
-        else{ui->label_2->setText(arithmetic_expression);}
+        else{ui->label_2->setText(equal_handler.arithmetic_expression);
+        ui->label->setText(QString::number(equal_handler.answer,'g',15));}
     }
     else if(button->text()=="pi"){
         ui->label->setText(QString::number(PI,'g',15));
