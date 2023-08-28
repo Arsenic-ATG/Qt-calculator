@@ -316,7 +316,7 @@ void MainWindow::on_actiontheme_1_triggered(){
     QPixmap bkgnd(":/resources/Images/theme1.png","5");
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
-    palette.setBrush(QPalette::Background, bkgnd);
+    palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
 }
 
@@ -339,7 +339,7 @@ void MainWindow::on_actiontheme_2_triggered(){
     QPixmap bkgnd(":/resources/Images/theme2.png","5");
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
-    palette.setBrush(QPalette::Background, bkgnd);
+    palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
 }
 
@@ -362,7 +362,7 @@ void MainWindow::on_actiontheme_3_triggered(){
     QPixmap bkgnd(":/resources/Images/theme3.png","5");
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
-    palette.setBrush(QPalette::Background, bkgnd);
+    palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
 }
 
@@ -385,6 +385,6 @@ void MainWindow::on_actiontheme_4_triggered(){
     QPixmap bkgnd(":/resources/Images/theme4.png","5");
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
-    palette.setBrush(QPalette::Background, bkgnd);
+    palette.setBrush(QPalette::Window, bkgnd);
     this->setPalette(palette);
 }
