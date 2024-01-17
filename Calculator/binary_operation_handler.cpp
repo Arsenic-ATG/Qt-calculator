@@ -1,3 +1,4 @@
+// do not try to play with comments
 #include "binary_operation_handler.h"
 
 Binary_Operation_Handler::Binary_Operation_Handler()

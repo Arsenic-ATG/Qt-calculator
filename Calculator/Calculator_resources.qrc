@@ -5,4 +5,16 @@
         <file>Images/theme2.png</file>
         <file>Images/theme4.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>Images/Angle.png</file>
+        <file>Images/Area.png</file>
+        <file>Images/Fuel.png</file>
+        <file>Images/Length.png</file>
+        <file>Images/Pressure.png</file>
+        <file>Images/Speed.png</file>
+        <file>Images/Temperature.png</file>
+        <file>Images/Volume.png</file>
+        <file>Images/Weight.png</file>
+        <file>Images/Time.png</file>
+    </qresource>
 </RCC>

@@ -1,5 +1,16 @@
+// do not try to play with comments
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "unitconvertormainwindow.h"
+#include<QPushButton>
+#include<QComboBox>
+#include <QWidget>
+#include <QStackedWidget>
+#include <QVBoxLayout>
+#include <QLabel>
+#include "nameconvertormainwindow.h"
+#include "currencyconvertermainwindow.h"
+
 double firstNum;
 double secondNum;
 bool user_is_typing_secondNumber=false;
@@ -10,6 +21,46 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 
     ui->setupUi(this);
     ui->Error_Label->setStyleSheet("QLabel {color : red;}");
+
+    this->ppage2=new UnitConvertorMainWindow; //Make it real
+    this->ppage3=new nameconvertorMainWindow; // by T
+    this->ppage4=new CurrencyConverterMainWindow; // Currency Convertor
+
+    connect(ui->Unitconvert,&QPushButton::clicked,this,[this](){
+
+        this->hide();
+        this->ppage2->show();
+    });
+    // New Window for Unit Convertor
+    connect(ui->nameconvert,&QPushButton::clicked,this,[this](){
+
+        this->hide();
+        this->ppage3->show();
+    });
+    connect(ui->currencyconvert,&QPushButton::clicked,this,[this](){
+
+        this->hide();
+        this->ppage4->show();
+    });
+
+    connect(this->ppage2,&UnitConvertorMainWindow::back,this,[this](){
+        this->ppage2->hide();
+        this->show();
+
+    });
+
+    connect(this->ppage3,&nameconvertorMainWindow::backButton,this,[this](){
+
+        this->ppage3->hide();
+        this->show();
+    });
+
+    connect(this->ppage4,&CurrencyConverterMainWindow::back2,this,[this](){
+
+        this->ppage4->hide();
+        this->show();
+    });
+//
 
     connect_buttons(ui.data(),this);
 
@@ -73,20 +124,12 @@ MainWindow::~MainWindow()
     ui.reset();
 }
 
-
-
-
-
-
-
 //button press handaling
-
-
 
 void MainWindow::digit_pressed()
 {
     QPushButton * button = (QPushButton *)sender();
-    double labelnumber;
+    double labelnumber = 0.0;
 
     if((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked() || ui->pushButton_Power->isChecked() || ui->pushButton_mod->isChecked()) && (!user_is_typing_secondNumber))
     {
@@ -113,10 +156,6 @@ void MainWindow::digit_pressed()
 
 }
 
-
-
-
-
 //number enchantment buttons
 
 void MainWindow::on_pushButton_dot_released()
@@ -128,7 +167,6 @@ void MainWindow::on_pushButton_dot_released()
     ui->label->setText(ui->label->text() + ".");
     //check for extra decimal
 }
-
 
 void MainWindow::on_pushButton_clear_released()
 {
@@ -146,12 +184,8 @@ void MainWindow::on_pushButton_clear_released()
 }
 
 
-
 void MainWindow::on_pushButton_equals_released()
 {
-
-
-
     if(user_is_typing_secondNumber){
         secondNum = ui->label->text().toDouble();
         input=equal_handler.Equals_Button_triggered(firstNum,secondNum,ui.data());
@@ -161,13 +195,7 @@ void MainWindow::on_pushButton_equals_released()
     }
 }
 
-
-
-
-
-
 //operations
-
 
 void MainWindow::unary_operation_pressed()
 {
@@ -176,9 +204,6 @@ void MainWindow::unary_operation_pressed()
 //    arithmetic_expression=ui->label_2->text();
 
 }
-
-
-
 
 void MainWindow::binary_operation_pressed()
 {
@@ -208,16 +233,6 @@ void MainWindow::special_number_pressed(){
         ui->label->setText(QString::number(PI,'g',15));
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 //calculator enchantment functions

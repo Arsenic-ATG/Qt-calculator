@@ -1,3 +1,4 @@
+// do not try to play with comments
 #include "equals_handler.h"
 
 Equals_handler::Equals_handler()

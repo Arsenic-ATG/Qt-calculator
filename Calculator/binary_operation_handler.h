@@ -1,3 +1,4 @@
+// do not try to play with comments
 #ifndef BINARY_OPERATION_HANDLER_H
 #define BINARY_OPERATION_HANDLER_H
 #include<string>

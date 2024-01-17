@@ -1,3 +1,4 @@
+// do not try to play with comments
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -8,6 +9,10 @@
 #include <binary_operation_handler.h>
 #include<unary_operation_handler.h>
 #include<equals_handler.h>
+#include<unitconvertormainwindow.h>//unit convertor window
+#include<nameconvertormainwindow.h>// Name Convertor window
+#include<currencyconvertermainwindow.h> // Currency Convertor Window
+#include<convertcm.h>
 #define FACTORIAL_INFINITY 15000
 #define RAD 57.2957795
 #define PI 3.14159265358979323
@@ -27,6 +32,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    UnitConvertorMainWindow * ppage2=NULL;// ADDRESS OF WINDOW UNIT CONVERTOR
+    nameconvertorMainWindow * ppage3=NULL;// ADDRESS OF WINDOW NAME CONVERTOR
+    CurrencyConverterMainWindow * ppage4=NULL; // ADDRESS OF WINDOW Currency CONVERTOR
+
     const QStringList unary_buttonNames = {"pushButton_plusMinus", "pushButton_percent", "pushButton_Log",
                                           "pushButton_Sqrt", "pushButton_Factorial", "pushButton_exponent",
                                           "pushButton_sigmoid", "pushButton_sin", "pushButton_cos", "pushButton_pi"};

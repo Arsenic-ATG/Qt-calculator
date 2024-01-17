@@ -1,3 +1,4 @@
+// do not try to play with comments
 #ifndef UNARY_OPERATION_HANDLER_H
 #define UNARY_OPERATION_HANDLER_H
 #define FACTORIAL_INFINITY 15000

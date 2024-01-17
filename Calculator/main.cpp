@@ -1,5 +1,5 @@
+// do not try to play with comments
 #include "mainwindow.h"
-#include "binary_operation_handler.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -7,5 +7,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
+
+
     return a.exec();
 }

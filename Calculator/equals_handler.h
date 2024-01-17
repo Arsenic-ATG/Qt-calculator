@@ -1,3 +1,4 @@
+// do not try to play with comments
 #ifndef EQUALS_HANDLER_H
 #define EQUALS_HANDLER_H
 #include<iostream>
