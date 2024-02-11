@@ -31,7 +31,7 @@ public:
                                           "pushButton_Sqrt", "pushButton_Factorial", "pushButton_exponent",
                                           "pushButton_sigmoid", "pushButton_sin", "pushButton_cos", "pushButton_pi"};
     const QStringList binary_buttonNames={"pushButton_multiply",
-                                          "pushButton_add","pushButton_minus","pushButton_divide", "pushButton_Power","pushButton_mod"};
+                                          "pushButton_add","pushButton_minus","pushButton_divide", "pushButton_Power","pushButton_squared"};
 public:
     QScopedPointer<Ui::MainWindow> ui;
 
@@ -53,6 +53,8 @@ private slots:
     void on_actiontheme_2_triggered();
     void on_actiontheme_3_triggered();
     void on_actiontheme_4_triggered();
+    void on_actiontheme_5_triggered();
+
 
 public:
     void connect_buttons(Ui::MainWindow * ui,MainWindow * window);
