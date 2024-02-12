@@ -4,5 +4,6 @@
         <file>Images/theme3.png</file>
         <file>Images/theme2.png</file>
         <file>Images/theme4.png</file>
+        <file>Images/UFtheme.png</file>
     </qresource>
 </RCC>

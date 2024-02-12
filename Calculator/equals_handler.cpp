@@ -49,17 +49,15 @@ QString Equals_handler::Equals_Button_triggered(double firstNum, double secondNu
     }
 
 
-    else if(ui->pushButton_mod->isChecked())
+    else if(ui->pushButton_squared->isChecked())
     {
-        if(secondNum==0){
-            ui->Error_Label->setText("Error message: cannot calculate mudulu of 0");
-        }
-        else{
 
-            labelnumber = (int(firstNum) % int(secondNum));
-            ui->pushButton_mod->setChecked(false);
-            symbol = " mod ";
-        }
+
+        labelnumber = (firstNum * firstNum);
+        ui->pushButton_squared->setChecked(false);
+        symbol = " x² ";
+
+
     }
 
     else if(ui->pushButton_add->isChecked())
@@ -69,6 +67,7 @@ QString Equals_handler::Equals_Button_triggered(double firstNum, double secondNu
         symbol = " + ";
     }
     // Setting the equation label
+
     arithmetic_expression=QString::number(firstNum,'g',15) + symbol + QString::number(secondNum,'g',15) + " = ";
     ui->label_2->setText(arithmetic_expression);
     input = QString::number(labelnumber,'g',15);

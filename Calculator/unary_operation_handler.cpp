@@ -49,6 +49,11 @@ void Unary_operation_handler::Unary_operation_triggered(QPushButton* button,Ui::
         input = QString::number(1/(1+exp(-labelnumber)),'g',15);
     }
 
+    else if(button->text() == " x² "){
+       input = QString::number(pow(labelnumber, 2),'g',15);
+    }
+
+
     else if(button->text() == "sin"){
         if(ui->comboBox->currentIndex()==1){input = QString::number(sin(labelnumber/RAD),'g',15);}
         else if(ui->comboBox->currentIndex()==2){input = QString::number(cos(labelnumber/GRAD),'g',15);}
@@ -71,7 +76,7 @@ void Unary_operation_handler::Unary_operation_triggered(QPushButton* button,Ui::
     else{
     ui->label_2->setText(symbol+ "(" + QString::number(labelnumber)+ ")" + " = ");
     }
-    ui->label->setText(input);
+    //ui->label->setText(input);
 }
 
 
