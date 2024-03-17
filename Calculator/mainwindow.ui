@@ -1437,12 +1437,12 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
         </property>
         <item>
          <property name="text">
-          <string>rad</string>
+          <string>Rad</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>degrees</string>
+          <string>Degrees</string>
          </property>
         </item>
         <item>
@@ -1516,7 +1516,7 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
      <x>0</x>
      <y>0</y>
      <width>504</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1592,7 +1592,7 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
   </action>
   <action name="actionCyan">
    <property name="text">
-    <string>cyan</string>
+    <string>Cyan</string>
    </property>
    <property name="shortcut">
     <string>F3</string>

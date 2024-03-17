@@ -318,6 +318,10 @@ void MainWindow::on_actiontheme_1_triggered(){
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
+
+    //This makes the background transparent again so that the image shows for 100%.
+    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+
     this->setPalette(palette);
 }
 
@@ -341,6 +345,10 @@ void MainWindow::on_actiontheme_2_triggered(){
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
+
+    //This makes the background transparent again so that the image shows for 100%.
+    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+
     this->setPalette(palette);
 }
 
@@ -364,6 +372,10 @@ void MainWindow::on_actiontheme_3_triggered(){
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
+
+    //This makes the background transparent again so that the image shows.
+    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+
     this->setPalette(palette);
 }
 
@@ -387,6 +399,10 @@ void MainWindow::on_actiontheme_4_triggered(){
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
+
+    //This makes the background transparent again so that the image shows.
+    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+
     this->setPalette(palette);
 }
 
@@ -410,6 +426,10 @@ void MainWindow::on_actiontheme_5_triggered(){
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
+
+    //This makes the background transparent again so that the image shows.
+    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+
     this->setPalette(palette);
 }
 
