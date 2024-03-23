@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "stylesheethelper.h"
 
 double firstNum;
 double secondNum;
