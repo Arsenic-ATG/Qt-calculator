@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "stylesheethelper.h"
+
 double firstNum;
 double secondNum;
 bool user_is_typing_secondNumber=false;
@@ -11,6 +13,18 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->setupUi(this);
     ui->Error_Label->setStyleSheet("QLabel {color : red;}");
 
+    digitButtons.push_back(ui->pushButton_0);
+    digitButtons.push_back(ui->pushButton_1);
+    digitButtons.push_back(ui->pushButton_2);
+    digitButtons.push_back(ui->pushButton_3);
+    digitButtons.push_back(ui->pushButton_4);
+    digitButtons.push_back(ui->pushButton_5);
+    digitButtons.push_back(ui->pushButton_6);
+    digitButtons.push_back(ui->pushButton_7);
+    digitButtons.push_back(ui->pushButton_8);
+    digitButtons.push_back(ui->pushButton_9);
+    digitButtons.push_back(ui->pushButton_dot);
+
     connect_buttons(ui.data(),this);
 
     ui->pushButton_add->setCheckable(true);
@@ -20,8 +34,6 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->pushButton_Power->setCheckable(true);
     ui->pushButton_Log->setCheckable(true);
     ui->pushButton_squared->setCheckable(true);
-
-
 }
 
 void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window){
@@ -35,7 +47,7 @@ void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window){
 void MainWindow::connect_digits(MainWindow * window){
     for(int i=0; i<=9; i++){
 
-        QPushButton *button = qobject_cast<QPushButton*>(window->findChild<QObject*>("pushButton_" + QString::number(i)));
+        QPushButton *button = digitButtons[i];
         QObject::connect(button, SIGNAL(released()), window, SLOT(digit_pressed()));
     }
 
@@ -234,11 +246,13 @@ void MainWindow::on_actionDark_triggered()
 {
     QPalette palette;
     this->setPalette(palette);
+    ui->comboBox->setStyleSheet("QComboBox {background-color: #009575;}");
     ui->centralwidget->setStyleSheet("QWidget { background-color: #000; }");
     ui->verticalWidget->setStyleSheet("QWidget { background-color: grey; }");
     ui->label_2->setStyleSheet("QLabel { background-color: grey; }");
     ui->label->setStyleSheet("QLabel { background-color: grey; }");
-    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
+    //ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
+    qDebug()<<ui->pushButton_0->styleSheet();
     ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
     ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
     ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");

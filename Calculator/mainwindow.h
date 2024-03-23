@@ -63,5 +63,7 @@ public:
     void connect_unary(Ui::MainWindow * ui,MainWindow * window);
     void connect_binary(Ui::MainWindow * ui,MainWindow * window);
     void connect_special_digits(Ui::MainWindow * ui,MainWindow * window);
+
+    std::vector<QPushButton*> digitButtons;
 };
 #endif // MAINWINDOW_H

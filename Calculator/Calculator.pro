@@ -18,6 +18,7 @@ SOURCES += \
     equals_handler.cpp \
     main.cpp \
     mainwindow.cpp \
+    stylesheethelper.cpp \
     unary_operation_handler.cpp
 
 HEADERS += \
@@ -25,6 +26,7 @@ HEADERS += \
     binary_operation_handler.h \
     equals_handler.h \
     mainwindow.h \
+    stylesheethelper.h \
     unary_operation_handler.h
 
 FORMS += \
