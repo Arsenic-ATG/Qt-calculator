@@ -65,5 +65,10 @@ public:
     void connect_special_digits(Ui::MainWindow * ui,MainWindow * window);
 
     std::vector<QPushButton*> digitButtons;
+    QComboBox *comboBox;
+    QWidget *centralwidget;
+    QWidget *verticalWidget;
+    QLabel *label;
+    QLabel *label_2;
 };
 #endif // MAINWINDOW_H
