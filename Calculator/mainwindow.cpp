@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 double firstNum;
 double secondNum;
 bool user_is_typing_secondNumber=false;
@@ -11,6 +12,24 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     ui->setupUi(this);
     ui->Error_Label->setStyleSheet("QLabel {color : red;}");
 
+    digitButtons.push_back(ui->pushButton_0);
+    digitButtons.push_back(ui->pushButton_1);
+    digitButtons.push_back(ui->pushButton_2);
+    digitButtons.push_back(ui->pushButton_3);
+    digitButtons.push_back(ui->pushButton_4);
+    digitButtons.push_back(ui->pushButton_5);
+    digitButtons.push_back(ui->pushButton_6);
+    digitButtons.push_back(ui->pushButton_7);
+    digitButtons.push_back(ui->pushButton_8);
+    digitButtons.push_back(ui->pushButton_9);
+    digitButtons.push_back(ui->pushButton_dot);
+
+
+    comboBox = ui->comboBox;
+    centralwidget = ui ->centralwidget;
+    verticalWidget = ui ->verticalWidget;
+    label = ui->label;
+    label_2 = ui->label_2;
     connect_buttons(ui.data(),this);
 
     ui->pushButton_add->setCheckable(true);
@@ -35,7 +54,7 @@ void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window){
 void MainWindow::connect_digits(MainWindow * window){
     for(int i=0; i<=9; i++){
 
-        QPushButton *button = qobject_cast<QPushButton*>(window->findChild<QObject*>("pushButton_" + QString::number(i)));
+        QPushButton *button = digitButtons[i];
         QObject::connect(button, SIGNAL(released()), window, SLOT(digit_pressed()));
     }
 
@@ -232,203 +251,174 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_actionDark_triggered()
 {
-    QPalette palette;
-    this->setPalette(palette);
-    ui->centralwidget->setStyleSheet("QWidget { background-color: #000; }");
-    ui->verticalWidget->setStyleSheet("QWidget { background-color: grey; }");
-    ui->label_2->setStyleSheet("QLabel { background-color: grey; }");
-    ui->label->setStyleSheet("QLabel { background-color: grey; }");
-    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
-    ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_3->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_4->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_5->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_6->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_7->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_8->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(239,239,239);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
+    centralwidget->setStyleSheet("QWidget { background-color: #000; }");
+    verticalWidget->setStyleSheet("QWidget { background-color: grey; }");
+    label_2->setStyleSheet("QLabel { background-color: grey; }");
+    label->setStyleSheet("QLabel { background-color: grey; }");
+    comboBox->setStyleSheet("QComboBox {background-color: grey; color:white} QAbstractItemView{color:white; background-color: grey;}");
+    for(auto b : digitButtons)
+    {
+        QString normalStyle="QPushButton { background-color: rgb(215, 215, 215); border-radius: 4px; padding: 10px; }";
+        QString pressedStyle="QPushButton:pressed{background-color: rgb(239,239,239);}";
+        QString hoverStyle="QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}";
+        b->setStyleSheet(normalStyle+pressedStyle+hoverStyle);
+    }
+
 }
 
 
 void MainWindow::on_actionLight_triggered()
 {
-    QPalette palette;
-    this->setPalette(palette);
-    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
-    ui->centralwidget->setStyleSheet("QWidget { background-color: #fff; }");
-    ui->label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239); }");
-    ui->label->setStyleSheet("QLabel { background-color: rgb(239,239,239); }");
-    ui->verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
-    ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_3->setStyleSheet("QPushButton { background-color: rgb(239,239,239);; border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_4->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_5->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_6->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_7->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_8->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
+    comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;} QAbstractItemView{background-color: #EFEFEF;}");
+    centralwidget->setStyleSheet("QWidget { background-color: #fff; }");
+    label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239); }");
+    label->setStyleSheet("QLabel { background-color: rgb(239,239,239); }");
+    verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
+    for(auto b : digitButtons)
+    {
+        QString normalStyle="QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }";
+        QString pressedStyle="QPushButton:pressed{background-color: rgb(220,220,220);}";
+        QString hoverStyle="QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}";
+        b->setStyleSheet(normalStyle+pressedStyle+hoverStyle);
+    }
+
 }
 
 void MainWindow::on_actionCyan_triggered()
 {
-    QPalette palette;
-    this->setPalette(palette);
-    ui->comboBox->setStyleSheet("QComboBox {background-color: #009575;}");
-    ui->centralwidget->setStyleSheet("QWidget { background-color: #002575; }");
-    ui->label_2->setStyleSheet("QLabel { background-color: rgb(0,100,100); }");
-    ui->label->setStyleSheet("QLabel { background-color: rgb(0,100,100); }");
-    ui->verticalWidget->setStyleSheet("QWidget { background-color: rgb(0,100,100); }");
-    ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_3->setStyleSheet("QPushButton { background-color: rgb(0,100,100);; border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_4->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_5->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_6->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_7->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_8->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
-    ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(219,219,219);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}");
+    comboBox->setStyleSheet("QComboBox {background-color: #009575; color:white; } QAbstractItemView{color:white; background-color: #009575;}");
+    centralwidget->setStyleSheet("QWidget { background-color: #002575; }");
+    label_2->setStyleSheet("QLabel { background-color: rgb(0,100,100); }");
+    label->setStyleSheet("QLabel { background-color: rgb(0,100,100); }");
+    verticalWidget->setStyleSheet("QWidget { background-color: rgb(0,100,100); }");
+    for(auto b : digitButtons)
+    {
+        QString normalStyle="QPushButton { background-color: rgb(0,100,100); border-radius: 4px; padding: 10px; }";
+        QString pressedStyle="QPushButton:pressed{background-color: rgb(219,219,219);}";
+        QString hoverStyle="QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #FFFFFF, stop: 1 #FFFFFF);}";
+        b->setStyleSheet(normalStyle+pressedStyle+hoverStyle);
+    }
+
 }
 
 
 void MainWindow::on_actiontheme_1_triggered(){
-    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
-    ui->label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
-    ui->label->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
-    ui->verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
-    ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_3->setStyleSheet("QPushButton { background-color: rgb(239,239,239);; border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_4->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_5->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_6->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_7->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_8->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
+    comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
+    label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    label->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
+    for(auto b : digitButtons)
+    {
+        QString normalStyle="QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }";
+        QString pressedStyle="QPushButton:pressed{background-color: rgb(220,220,220);}";
+        QString hoverStyle="QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}";
+        b->setStyleSheet(normalStyle+pressedStyle+hoverStyle);
+    }
+
     QPixmap bkgnd(":/resources/Images/theme1.png","5");
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
 
     //This makes the background transparent again so that the image shows for 100%.
-    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+    centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
 
     this->setPalette(palette);
 }
 
 void MainWindow::on_actiontheme_2_triggered(){
-    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
-    ui->label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
-    ui->label->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
-    ui->verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
-    ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_3->setStyleSheet("QPushButton { background-color: rgb(239,239,239);; border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_4->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_5->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_6->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_7->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_8->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
+    comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;} QAbstractItemView{background-color: #EFEFEF;}");
+    label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    label->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
+    for(auto b : digitButtons)
+    {
+        QString normalStyle="QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }";
+        QString pressedStyle="QPushButton:pressed{background-color: rgb(220,220,220);}";
+        QString hoverStyle="QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}";
+        b->setStyleSheet(normalStyle+pressedStyle+hoverStyle);
+    }
+
     QPixmap bkgnd(":/resources/Images/theme2.png","5");
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
 
     //This makes the background transparent again so that the image shows for 100%.
-    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+    centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
 
     this->setPalette(palette);
 }
 
 void MainWindow::on_actiontheme_3_triggered(){
-    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
-    ui->label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
-    ui->label->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
-    ui->verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
-    ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_3->setStyleSheet("QPushButton { background-color: rgb(239,239,239);; border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_4->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_5->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_6->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_7->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_8->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
+    comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;} QAbstractItemView{background-color: #EFEFEF;}");
+    label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    label->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
+    for(auto b : digitButtons)
+    {
+        QString normalStyle="QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }";
+        QString pressedStyle="QPushButton:pressed{background-color: rgb(220,220,220);}";
+        QString hoverStyle="QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}";
+        b->setStyleSheet(normalStyle+pressedStyle+hoverStyle);
+    }
+
+
     QPixmap bkgnd(":/resources/Images/theme3.png","5");
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
 
     //This makes the background transparent again so that the image shows.
-    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+    centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
 
     this->setPalette(palette);
 }
 
 void MainWindow::on_actiontheme_4_triggered(){
-    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
-    ui->label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
-    ui->label->setStyleSheet("QLabel { background-color: rgb(239,239,239); color: #000000; }");
-    ui->verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
-    ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_3->setStyleSheet("QPushButton { background-color: rgb(239,239,239);; border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_4->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_5->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_6->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_7->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_8->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
+    comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;} QAbstractItemView{background-color: #EFEFEF;}");
+    label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    label->setStyleSheet("QLabel { background-color: rgb(239,239,239); color: #000000; }");
+    verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
+    for(auto b : digitButtons)
+    {
+        QString normalStyle="QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }";
+        QString pressedStyle="QPushButton:pressed{background-color: rgb(220,220,220);}";
+        QString hoverStyle="QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}";
+        b->setStyleSheet(normalStyle+pressedStyle+hoverStyle);
+    }
+
     QPixmap bkgnd(":/resources/Images/theme4.png","5");
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
 
     //This makes the background transparent again so that the image shows.
-    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+    centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
 
     this->setPalette(palette);
 }
 
 void MainWindow::on_actiontheme_5_triggered(){
-    ui->comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;}");
-    ui->label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
-    ui->label->setStyleSheet("QLabel { background-color: rgb(239,239,239); color: #000000; }");
-    ui->verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
-    ui->pushButton_0->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_1->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_2->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_3->setStyleSheet("QPushButton { background-color: rgb(239,239,239);; border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_4->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_5->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_6->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_7->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_8->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_9->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
-    ui->pushButton_dot->setStyleSheet("QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }QPushButton:pressed{background-color: rgb(220,220,220);}QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}");
+    comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;} QAbstractItemView{background-color: #EFEFEF;}");
+    label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    label->setStyleSheet("QLabel { background-color: rgb(239,239,239); color: #000000; }");
+    verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
+    for(auto b : digitButtons)
+    {
+        QString normalStyle="QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }";
+        QString pressedStyle="QPushButton:pressed{background-color: rgb(220,220,220);}";
+        QString hoverStyle="QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}";
+        b->setStyleSheet(normalStyle+pressedStyle+hoverStyle);
+    }
+
     QPixmap bkgnd(":/resources/Images/UFtheme.png","5");
     bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Window, bkgnd);
 
     //This makes the background transparent again so that the image shows.
-    ui->centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+    centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
 
     this->setPalette(palette);
 }
