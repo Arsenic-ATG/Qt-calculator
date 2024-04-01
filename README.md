@@ -64,6 +64,7 @@ Before making the needed changes , follow these instructions(if you are familiar
 ![divide](https://user-images.githubusercontent.com/94454456/228867052-22f27aed-c21a-479c-b4ed-8f7e7d3dcd9a.png)
 ![multiply](https://user-images.githubusercontent.com/94454456/228867254-3ff3cbe9-e2a3-4119-b0e8-72853d9da059.png)
 
+This project is tested with BrowserStack
 
 ## License
 
