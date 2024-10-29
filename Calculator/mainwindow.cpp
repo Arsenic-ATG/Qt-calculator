@@ -326,6 +326,7 @@ void MainWindow::on_actiontheme_1_triggered(){
     this->setPalette(palette);
 }
 
+
 void MainWindow::on_actiontheme_2_triggered(){
     comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;} QAbstractItemView{background-color: #EFEFEF;}");
     label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
