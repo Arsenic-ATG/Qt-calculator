@@ -11,7 +11,7 @@ The calculator can be used on all platforms(altough the GUI may differ on each p
 **Qt creator** or **Qmake** build system set up in your IDE
 
 ### Setting up Qt 💻
-* Start by installing the Qt SDK from [qt.io](https://www.qt.io/download). Since the online installers can be pretty buggy, it was decided to go with the offline Open Source version
+* Start by installing the Qt SDK from [qt.io](https://www.qt.io/download). Since the online installers can be pretty buggy, it was decided to go with the offline Open Source version (the linked version).
 * The installer does not include any compiler on its default install. Make sure you select the fitting MinGW compiler.
 * As mentioned above, Qt Creator is a sort of an IDE with internal build tools. So currently, it's a good idea to install this.
 * We will not be using CMake since QMake comes bundled with the creator. 
@@ -49,24 +49,33 @@ Before making the needed changes , follow these instructions(if you are familiar
 - These screen shots were taken on Windows 10 OS, result might vary according to your Operating System
 ```
 ### calculator themes:
+Light Theme
 ![light mode screenshot](https://user-images.githubusercontent.com/94454456/228864882-e7d9558a-facc-4e7d-a48a-4c5c1f2912af.png)
+Dark Theme
 ![dark mode screenshot](https://user-images.githubusercontent.com/94454456/228865275-a596d267-f213-4a11-8d17-0c17a3bfcc73.png)
 
 ### unary functions:
-
+These are unary functions being used on the calulator.
+Square Root Function
 ![Sqrt](https://user-images.githubusercontent.com/94454456/228865918-667add86-f5f8-4e82-bbab-e930266c6032.png)
+Log Function
 ![Log_error](https://user-images.githubusercontent.com/94454456/228866137-8bead345-6ff9-491d-8706-15aafa1149fe.png)
+Sin Function in Degrees
 ![sin_on_degrees](https://user-images.githubusercontent.com/94454456/228866445-40649182-6ea9-460a-9f0b-30cc1d013c47.png)
+Factorial Function
 ![factorial](https://user-images.githubusercontent.com/94454456/228867444-c633ceb5-5930-4178-b28e-2736eea29657.png)
 
 
 ### binary functions
+These are binary functions being used on the calculator.
+Divide Function
 ![divide](https://user-images.githubusercontent.com/94454456/228867052-22f27aed-c21a-479c-b4ed-8f7e7d3dcd9a.png)
+Multiply Function
 ![multiply](https://user-images.githubusercontent.com/94454456/228867254-3ff3cbe9-e2a3-4119-b0e8-72853d9da059.png)
 
 
 ## License
-
+Using MIT License
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
