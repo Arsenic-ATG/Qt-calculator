@@ -17,6 +17,9 @@ The calculator can be used on all platforms(altough the GUI may differ on each p
 * We will not be using CMake since QMake comes bundled with the creator. 
 
 ## Contributing
+
+**Contribution is paused for some time ( see #56 for more details )**
+
 The calculator is evolving each day, and yet there are always new features to implement, code to optimize, or documentation to add.
 For this very reason, contributers(completely new ones or veterans) are more than welcome to make the changes.
 If you wish to contribute, please read [CONTRIBUTING.md](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/CONTRIBUTING.md) for details on the code of conduct and process for submitting pull requests to the repository.
