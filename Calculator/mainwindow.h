@@ -55,7 +55,6 @@ private slots:
     void on_actiontheme_4_triggered();
     void on_actiontheme_5_triggered();
 
-
 public:
     void connect_buttons(Ui::MainWindow * ui,MainWindow * window);
     void connect_digits(MainWindow * window);
