@@ -56,6 +56,9 @@ Light Theme
 ![light mode screenshot](https://user-images.githubusercontent.com/94454456/228864882-e7d9558a-facc-4e7d-a48a-4c5c1f2912af.png)
 Dark Theme
 ![dark mode screenshot](https://user-images.githubusercontent.com/94454456/228865275-a596d267-f213-4a11-8d17-0c17a3bfcc73.png)
+Multi-Color Theme
+<img width="505" alt="Multi-color mode screenshot" src="https://github.com/user-attachments/assets/e6af04cb-9e8c-42e3-a458-cec2e2e60054">
+
 
 ### unary functions:
 These are unary functions being used on the calulator.
