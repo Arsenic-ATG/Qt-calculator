@@ -238,6 +238,31 @@ void MainWindow::applyTheme(const Theme &theme)
     this->setPalette(palette);
 }
 
+
+void MainWindow::on_actiontheme_2_triggered(){
+    comboBox->setStyleSheet("QComboBox {background-color: #EFEFEF;} QAbstractItemView{background-color: #EFEFEF;}");
+    label_2->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    label->setStyleSheet("QLabel { background-color: rgb(239,239,239);color: #000000; }");
+    verticalWidget->setStyleSheet("QWidget { background-color: rgb(239,239,239); }");
+    for(auto b : digitButtons)
+    {
+        QString normalStyle="QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }";
+        QString pressedStyle="QPushButton:pressed{background-color: rgb(220,220,220);}";
+        QString hoverStyle="QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}";
+        b->setStyleSheet(normalStyle+pressedStyle+hoverStyle);
+    }
+
+    QPixmap bkgnd(":/resources/Images/theme2.png","5");
+    bkgnd = bkgnd.scaled(this->size(), Qt::KeepAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);
+
+    //This makes the background transparent again so that the image shows for 100%.
+    centralwidget->setStyleSheet("QWidget { background-color: rgba(0,0,0,0); }");
+
+    this->setPalette(palette);
+}
+
 // Define theme instances
 Theme theme1("QComboBox {background-color: #EFEFEF;}", "QLabel { background-color: rgb(239,239,239);color: #000000; }", "QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }", "QPushButton:pressed{background-color: rgb(220,220,220);}", "QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}", ":/resources/Images/theme1.png");
 Theme theme2("QComboBox {background-color: #EFEFEF;} QAbstractItemView{background-color: #EFEFEF;}", "QLabel { background-color: rgb(239,239,239);color: #000000; }", "QPushButton { background-color: rgb(239,239,239); border-radius: 4px; padding: 10px; }", "QPushButton:pressed{background-color: rgb(220,220,220);}", "QPushButton:hover:!pressed {background: qradialgradient(cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff);}", ":/resources/Images/theme2.png");
