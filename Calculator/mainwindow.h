@@ -1,10 +1,10 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "theme.h"
 #include <QMainWindow>
 #include <math.h>
 #include <QDebug>
-#include <iostream>
 #include <binary_operation_handler.h>
 #include<unary_operation_handler.h>
 #include<equals_handler.h>
@@ -46,22 +46,17 @@ private slots:
     void on_pushButton_equals_released();
     void binary_operation_pressed();
     void on_actionExit_triggered();
-    void on_actionDark_triggered();
-    void on_actionLight_triggered();
-    void on_actionCyan_triggered();
     void on_actiontheme_1_triggered();
     void on_actiontheme_2_triggered();
-    void on_actiontheme_3_triggered();
-    void on_actiontheme_4_triggered();
-    void on_actiontheme_5_triggered();
 
 public:
     void connect_buttons(Ui::MainWindow * ui,MainWindow * window);
     void connect_digits(MainWindow * window);
-    //void MainWindow::connect_buttons(Ui::MainWindow * ui,MainWindow * window);
-    void connect_unary(Ui::MainWindow * ui,MainWindow * window);
-    void connect_binary(Ui::MainWindow * ui,MainWindow * window);
+    void connect_unary(MainWindow * window);
+    void connect_binary(MainWindow * window);
     void connect_special_digits(Ui::MainWindow * ui,MainWindow * window);
+
+    void applyTheme(const Theme &theme);
 
     std::vector<QPushButton*> digitButtons;
     QComboBox *comboBox;

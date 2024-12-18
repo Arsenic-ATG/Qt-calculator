@@ -149,7 +149,7 @@ background-color : white;
 }</string>
          </property>
          <property name="text">
-          <string>0</string>
+          <string/>
          </property>
          <property name="alignment">
           <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
@@ -182,8 +182,8 @@ background-color : white;
       <property name="verticalSpacing">
        <number>15</number>
       </property>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="pushButton_percent">
+      <item row="10" column="0">
+       <widget class="QPushButton" name="pushButton_0">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -198,31 +198,34 @@ background-color : white;
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
-
-QPushButton {
-  color: #000;
-  background-color: rgb(215, 215, 215);
-  border-radius: 10px;
-  padding: 10px;
+         <string notr="true">QPushButton {
+color: rgb(134,134,140);
+background-color: rgb(239,239,239);
+border-radius: 10px;
+padding: 10px;
 }
 
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
 QPushButton:hover {
 background: qradialgradient(
 cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
 radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
 );
-}</string>
+}
+
+QPushButton:pressed {
+border-style: inset;
+background: qradialgradient(
+cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #707070, stop: 1 #606060
+);
+}
+</string>
         </property>
         <property name="text">
-         <string>%</string>
+         <string>0</string>
         </property>
         <property name="shortcut">
-         <string>%</string>
+         <string>0</string>
         </property>
        </widget>
       </item>
@@ -281,146 +284,8 @@ QPushButton:hover{
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
-       <widget class="QPushButton" name="pushButton_4">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-color: rgb(134,134,140);
-background-color: rgb(239,239,239);
-border-radius: 10px;
-padding: 10px;
-}
-
-QPushButton:hover {
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
-);
-}
-
-QPushButton:pressed {
-border-style: inset;
-background: qradialgradient(
-cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #707070, stop: 1 #606060
-);
-}
-</string>
-        </property>
-        <property name="text">
-         <string>4</string>
-        </property>
-        <property name="shortcut">
-         <string>4</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="8">
-       <widget class="QPushButton" name="pushButton_Factorial">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
-
-QPushButton {
-  color: #FFF;
-  background-color: rgb(241, 122, 28);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
-QPushButton:hover{
- background-color: rgb(220,220,220);
-}</string>
-        </property>
-        <property name="text">
-         <string>!</string>
-        </property>
-        <property name="shortcut">
-         <string>*</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="5">
-       <widget class="QPushButton" name="pushButton_add">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
-
-QPushButton {
-  color: #FFF;
-  background-color: rgb(241, 122, 28);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
-QPushButton:hover{
- background-color: rgb(220,220,220);
-}</string>
-        </property>
-        <property name="text">
-         <string> + </string>
-        </property>
-        <property name="shortcut">
-         <string>+</string>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">buttonGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item row="10" column="3">
-       <widget class="QPushButton" name="pushButton_Log">
+      <item row="10" column="5">
+       <widget class="QPushButton" name="pushButton_cos">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -456,7 +321,7 @@ radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
 }</string>
         </property>
         <property name="text">
-         <string>Log</string>
+         <string>cos</string>
         </property>
         <property name="shortcut">
          <string>%</string>
@@ -507,8 +372,49 @@ QPushButton:hover{
         </attribute>
        </widget>
       </item>
-      <item row="10" column="2">
-       <widget class="QPushButton" name="pushButton_previos_answer">
+      <item row="3" column="8">
+       <widget class="QPushButton" name="pushButton_Sqrt">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
+
+QPushButton {
+  color: #FFF;
+  background-color: rgb(241, 122, 28);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QPushButton:hover{
+ background-color: rgb(220,220,220);
+}</string>
+        </property>
+        <property name="text">
+         <string>√</string>
+        </property>
+        <property name="shortcut">
+         <string>*</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="3">
+       <widget class="QPushButton" name="pushButton_Log">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -544,7 +450,7 @@ radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
 }</string>
         </property>
         <property name="text">
-         <string>ans</string>
+         <string>Log</string>
         </property>
         <property name="shortcut">
          <string>%</string>
@@ -604,8 +510,8 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
         </property>
        </widget>
       </item>
-      <item row="3" column="5">
-       <widget class="QPushButton" name="pushButton_multiply">
+      <item row="10" column="1">
+       <widget class="QPushButton" name="pushButton_dot">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -620,76 +526,59 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
-
-QPushButton {
-  color: #FFF;
-  background-color: rgb(241, 122, 28);
-  border-radius: 10px;
-  padding: 10px;
+         <string notr="true">QPushButton {
+color: rgb(134,134,140);
+background-color: rgb(239,239,239);
+border-radius: 10px;
+padding: 10px;
 }
 
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
-QPushButton:hover{
- background-color: rgb(220,220,220);
-}</string>
-        </property>
-        <property name="text">
-         <string>x</string>
-        </property>
-        <property name="shortcut">
-         <string>*</string>
-        </property>
-        <attribute name="buttonGroup">
-         <string notr="true">buttonGroup</string>
-        </attribute>
-       </widget>
-      </item>
-      <item row="3" column="3">
-       <widget class="QPushButton" name="pushButton_squared">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
-
-QPushButton {
-  color: #000;
-  background-color: rgb(215, 215, 215);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
 QPushButton:hover {
 background: qradialgradient(
 cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
 radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
 );
+}
+
+QPushButton:pressed {
+border-style: inset;
+background: qradialgradient(
+cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #707070, stop: 1 #606060
+);
+QPushButton:hover{
+ background-color: rgb(220,220,220);
+}
 }</string>
         </property>
         <property name="text">
-         <string>x²</string>
+         <string>.</string>
         </property>
         <property name="shortcut">
-         <string>%</string>
+         <string>.</string>
         </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QComboBox" name="comboBox">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>Rad</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Degrees</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Grad</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item row="5" column="3">
@@ -730,6 +619,94 @@ radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
         </property>
         <property name="text">
          <string>exp</string>
+        </property>
+        <property name="shortcut">
+         <string>%</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="pushButton_percent">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
+
+QPushButton {
+  color: #000;
+  background-color: rgb(215, 215, 215);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QPushButton:hover {
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
+);
+}</string>
+        </property>
+        <property name="text">
+         <string>%</string>
+        </property>
+        <property name="shortcut">
+         <string>%</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="pushButton_squared">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
+
+QPushButton {
+  color: #000;
+  background-color: rgb(215, 215, 215);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QPushButton:hover {
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
+);
+}</string>
+        </property>
+        <property name="text">
+         <string>x²</string>
         </property>
         <property name="shortcut">
          <string>%</string>
@@ -783,96 +760,6 @@ QPushButton:hover{
         </property>
        </widget>
       </item>
-      <item row="3" column="8">
-       <widget class="QPushButton" name="pushButton_Sqrt">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
-
-QPushButton {
-  color: #FFF;
-  background-color: rgb(241, 122, 28);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
-QPushButton:hover{
- background-color: rgb(220,220,220);
-}</string>
-        </property>
-        <property name="text">
-         <string>√</string>
-        </property>
-        <property name="shortcut">
-         <string>*</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="1">
-       <widget class="QPushButton" name="pushButton_dot">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-color: rgb(134,134,140);
-background-color: rgb(239,239,239);
-border-radius: 10px;
-padding: 10px;
-}
-
-QPushButton:hover {
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
-);
-}
-
-QPushButton:pressed {
-border-style: inset;
-background: qradialgradient(
-cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #707070, stop: 1 #606060
-);
-QPushButton:hover{
- background-color: rgb(220,220,220);
-}
-}</string>
-        </property>
-        <property name="text">
-         <string>.</string>
-        </property>
-        <property name="shortcut">
-         <string>.</string>
-        </property>
-       </widget>
-      </item>
       <item row="8" column="8">
        <widget class="QPushButton" name="pushButton_sin">
         <property name="sizePolicy">
@@ -917,8 +804,213 @@ radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
         </property>
        </widget>
       </item>
-      <item row="1" column="5">
-       <widget class="QPushButton" name="pushButton_divide">
+      <item row="5" column="0">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: rgb(134,134,140);
+background-color: rgb(239,239,239);
+border-radius: 10px;
+padding: 10px;
+}
+
+QPushButton:hover {
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
+);
+}
+
+QPushButton:pressed {
+border-style: inset;
+background: qradialgradient(
+cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #707070, stop: 1 #606060
+);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+        <property name="shortcut">
+         <string>4</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QPushButton" name="pushButton_9">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: rgb(134,134,140);
+background-color: rgb(239,239,239);
+border-radius: 10px;
+padding: 10px;
+}
+
+QPushButton:hover {
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
+);
+}
+
+QPushButton:pressed {
+border-style: inset;
+background: qradialgradient(
+cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #707070, stop: 1 #606060
+);
+QPushButton:hover{
+ background-color: rgb(220,220,220);
+}
+}</string>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+        <property name="shortcut">
+         <string>9</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QPushButton" name="pushButton_1">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: rgb(134,134,140);
+background-color: rgb(239,239,239);
+border-radius: 10px;
+padding: 10px;
+}
+
+QPushButton:hover {
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
+);
+}
+
+QPushButton:pressed {
+border-style: inset;
+background: qradialgradient(
+cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #707070, stop: 1 #606060
+);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+        <property name="shortcut">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pushButton_plusMinus">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
+
+QPushButton {
+  color: #000;
+  background-color: rgb(215, 215, 215);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QPushButton:hover {
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
+);
+}</string>
+        </property>
+        <property name="text">
+         <string>+/-</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="8">
+       <widget class="QPushButton" name="pushButton_Factorial">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -951,14 +1043,154 @@ QPushButton:hover{
 }</string>
         </property>
         <property name="text">
-         <string>÷</string>
+         <string>!</string>
         </property>
         <property name="shortcut">
-         <string>/</string>
+         <string>*</string>
         </property>
-        <attribute name="buttonGroup">
-         <string notr="true">buttonGroup</string>
-        </attribute>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+color: rgb(134,134,140);
+background-color: rgb(239,239,239);
+border-radius: 10px;
+padding: 10px;
+}
+
+QPushButton:hover {
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
+);
+}
+
+QPushButton:pressed {
+border-style: inset;
+background: qradialgradient(
+cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
+radius: 1.35, stop: 0 #707070, stop: 1 #606060
+);
+QPushButton:hover{
+ background-color: rgb(220,220,220);
+}
+}</string>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+        <property name="shortcut">
+         <string>3</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="2">
+       <widget class="QPushButton" name="pushButton_previos_answer">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>12</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
+
+QPushButton {
+  color: #000;
+  background-color: rgb(215, 215, 215);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QPushButton:hover {
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
+);
+}</string>
+        </property>
+        <property name="text">
+         <string>ans</string>
+        </property>
+        <property name="shortcut">
+         <string>%</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="3">
+       <widget class="QPushButton" name="pushButton_sigmoid">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>12</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
+
+QPushButton {
+  color: #000;
+  background-color: rgb(215, 215, 215);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QPushButton:hover {
+background: qradialgradient(
+cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
+);
+}</string>
+        </property>
+        <property name="text">
+         <string>sigmoid</string>
+        </property>
+        <property name="shortcut">
+         <string>%</string>
+        </property>
        </widget>
       </item>
       <item row="5" column="2">
@@ -1016,6 +1248,46 @@ QPushButton:hover{
         </property>
        </widget>
       </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="pushButton_clear">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>16</pointsize>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
+
+QPushButton {
+  background-color: rgb(254,99,71);
+  border-radius: 4px;
+  padding: 5px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
+QPushButton:hover{
+ background-color: rgb(220,220,220);
+}</string>
+        </property>
+        <property name="text">
+         <string>C</string>
+        </property>
+        <property name="shortcut">
+         <string>C</string>
+        </property>
+       </widget>
+      </item>
       <item row="3" column="1">
        <widget class="QPushButton" name="pushButton_8">
         <property name="sizePolicy">
@@ -1069,8 +1341,8 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
         </property>
        </widget>
       </item>
-      <item row="10" column="5">
-       <widget class="QPushButton" name="pushButton_cos">
+      <item row="8" column="5">
+       <widget class="QPushButton" name="pushButton_add">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1080,7 +1352,7 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
         <property name="font">
          <font>
           <family>Arial</family>
-          <pointsize>12</pointsize>
+          <pointsize>16</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -1088,8 +1360,8 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
          <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
 
 QPushButton {
-  color: #000;
-  background-color: rgb(215, 215, 215);
+  color: #FFF;
+  background-color: rgb(241, 122, 28);
   border-radius: 10px;
   padding: 10px;
 }
@@ -1098,23 +1370,23 @@ QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }
-QPushButton:hover {
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
-);
+QPushButton:hover{
+ background-color: rgb(220,220,220);
 }</string>
         </property>
         <property name="text">
-         <string>cos</string>
+         <string> + </string>
         </property>
         <property name="shortcut">
-         <string>%</string>
+         <string>+</string>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
        </widget>
       </item>
-      <item row="8" column="3">
-       <widget class="QPushButton" name="pushButton_sigmoid">
+      <item row="1" column="3">
+       <widget class="QPushButton" name="pushButton_pi">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1150,7 +1422,7 @@ radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
 }</string>
         </property>
         <property name="text">
-         <string>sigmoid</string>
+         <string>π</string>
         </property>
         <property name="shortcut">
          <string>%</string>
@@ -1212,137 +1484,6 @@ QPushButton:hover{
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
-       <widget class="QPushButton" name="pushButton_plusMinus">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
-
-QPushButton {
-  color: #000;
-  background-color: rgb(215, 215, 215);
-  border-radius: 10px;
-  padding: 10px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
-QPushButton:hover {
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
-);
-}</string>
-        </property>
-        <property name="text">
-         <string>+/-</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
-       <widget class="QPushButton" name="pushButton_0">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-color: rgb(134,134,140);
-background-color: rgb(239,239,239);
-border-radius: 10px;
-padding: 10px;
-}
-
-QPushButton:hover {
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
-);
-}
-
-QPushButton:pressed {
-border-style: inset;
-background: qradialgradient(
-cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #707070, stop: 1 #606060
-);
-}
-</string>
-        </property>
-        <property name="text">
-         <string>0</string>
-        </property>
-        <property name="shortcut">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QPushButton" name="pushButton_clear">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
-
-QPushButton {
-  background-color: rgb(254,99,71);
-  border-radius: 4px;
-  padding: 5px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
-}
-QPushButton:hover{
- background-color: rgb(220,220,220);
-}</string>
-        </property>
-        <property name="text">
-         <string>C</string>
-        </property>
-        <property name="shortcut">
-         <string>C</string>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="8">
        <widget class="QPushButton" name="pushButton_Power">
         <property name="sizePolicy">
@@ -1384,8 +1525,8 @@ QPushButton:hover{
         </property>
        </widget>
       </item>
-      <item row="1" column="3">
-       <widget class="QPushButton" name="pushButton_pi">
+      <item row="3" column="5">
+       <widget class="QPushButton" name="pushButton_multiply">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
@@ -1395,7 +1536,7 @@ QPushButton:hover{
         <property name="font">
          <font>
           <family>Arial</family>
-          <pointsize>12</pointsize>
+          <pointsize>16</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -1403,8 +1544,8 @@ QPushButton:hover{
          <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
 
 QPushButton {
-  color: #000;
-  background-color: rgb(215, 215, 215);
+  color: #FFF;
+  background-color: rgb(241, 122, 28);
   border-radius: 10px;
   padding: 10px;
 }
@@ -1413,89 +1554,28 @@ QPushButton:pressed {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
                                       stop: 0 #BEBEBE, stop: 1 #D7D7D7);
 }
-QPushButton:hover {
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
-);
-}</string>
-        </property>
-        <property name="text">
-         <string>π</string>
-        </property>
-        <property name="shortcut">
-         <string>%</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="2">
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-color: rgb(134,134,140);
-background-color: rgb(239,239,239);
-border-radius: 10px;
-padding: 10px;
-}
-
-QPushButton:hover {
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
-);
-}
-
-QPushButton:pressed {
-border-style: inset;
-background: qradialgradient(
-cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #707070, stop: 1 #606060
-);
 QPushButton:hover{
  background-color: rgb(220,220,220);
-}
 }</string>
         </property>
         <property name="text">
-         <string>3</string>
+         <string>x</string>
         </property>
         <property name="shortcut">
-         <string>3</string>
+         <string>*</string>
         </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
        </widget>
       </item>
-      <item row="3" column="2">
-       <widget class="QPushButton" name="pushButton_9">
+      <item row="1" column="5">
+       <widget class="QPushButton" name="pushButton_divide">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>50</height>
-         </size>
         </property>
         <property name="font">
          <font>
@@ -1505,112 +1585,32 @@ QPushButton:hover{
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-color: rgb(134,134,140);
-background-color: rgb(239,239,239);
-border-radius: 10px;
-padding: 10px;
-}
+         <string notr="true">/* (Clear,+/-,%,. buttons) Unary Operations Buttons Stylesheet */
 
-QPushButton:hover {
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
-);
+QPushButton {
+  color: #FFF;
+  background-color: rgb(241, 122, 28);
+  border-radius: 10px;
+  padding: 10px;
 }
 
 QPushButton:pressed {
-border-style: inset;
-background: qradialgradient(
-cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #707070, stop: 1 #606060
-);
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #BEBEBE, stop: 1 #D7D7D7);
+}
 QPushButton:hover{
  background-color: rgb(220,220,220);
-}
 }</string>
         </property>
         <property name="text">
-         <string>9</string>
+         <string>÷</string>
         </property>
         <property name="shortcut">
-         <string>9</string>
+         <string>/</string>
         </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QComboBox" name="comboBox">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>Rad</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Degrees</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Grad</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QPushButton" name="pushButton_1">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>50</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <pointsize>16</pointsize>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-color: rgb(134,134,140);
-background-color: rgb(239,239,239);
-border-radius: 10px;
-padding: 10px;
-}
-
-QPushButton:hover {
-background: qradialgradient(
-cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
-radius: 1.35, stop: 0 #8afff7, stop: 1 #73ffff
-);
-}
-
-QPushButton:pressed {
-border-style: inset;
-background: qradialgradient(
-cx: 0.4, cy: -0.1, fx: 0.4, fy: -0.1,
-radius: 1.35, stop: 0 #707070, stop: 1 #606060
-);
-}
-</string>
-        </property>
-        <property name="text">
-         <string>1</string>
-        </property>
-        <property name="shortcut">
-         <string>1</string>
-        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">buttonGroup</string>
+        </attribute>
        </widget>
       </item>
      </layout>
@@ -1626,7 +1626,7 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
      <x>0</x>
      <y>0</y>
      <width>504</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1635,11 +1635,11 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
     </property>
     <widget class="QMenu" name="menuThemes">
      <property name="title">
-      <string>Themes</string>
+      <string>&amp;Themes</string>
      </property>
      <widget class="QMenu" name="menuBasic_colors">
       <property name="title">
-       <string>Basic colors</string>
+       <string>&amp;Basic colors</string>
       </property>
       <addaction name="actionCyan"/>
       <addaction name="actionLight"/>
@@ -1647,7 +1647,7 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
      </widget>
      <widget class="QMenu" name="menuImages">
       <property name="title">
-       <string>Images</string>
+       <string>&amp;Images</string>
       </property>
       <addaction name="actiontheme_1"/>
       <addaction name="actiontheme_2"/>
@@ -1673,7 +1673,7 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
   </action>
   <action name="actionExit">
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Exit</string>
    </property>
    <property name="shortcut">
     <string>Esc</string>
@@ -1686,7 +1686,7 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
   </action>
   <action name="actionDark">
    <property name="text">
-    <string>Dark</string>
+    <string>&amp;Dark</string>
    </property>
    <property name="shortcut">
     <string>F1</string>
@@ -1694,7 +1694,7 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
   </action>
   <action name="actionLight">
    <property name="text">
-    <string>Light</string>
+    <string>&amp;Light</string>
    </property>
    <property name="shortcut">
     <string>F2</string>
@@ -1702,7 +1702,7 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
   </action>
   <action name="actionCyan">
    <property name="text">
-    <string>Cyan</string>
+    <string>&amp;Cyan</string>
    </property>
    <property name="shortcut">
     <string>F3</string>
@@ -1710,27 +1710,27 @@ radius: 1.35, stop: 0 #707070, stop: 1 #606060
   </action>
   <action name="actiontheme_1">
    <property name="text">
-    <string>theme_1</string>
+    <string>&amp;theme_1</string>
    </property>
   </action>
   <action name="actiontheme_2">
    <property name="text">
-    <string>theme_2</string>
+    <string>theme_&amp;2</string>
    </property>
   </action>
   <action name="actiontheme_3">
    <property name="text">
-    <string>theme_3</string>
+    <string>theme_&amp;3</string>
    </property>
   </action>
   <action name="actiontheme_4">
    <property name="text">
-    <string>theme_4</string>
+    <string>theme_&amp;4</string>
    </property>
   </action>
   <action name="actiontheme_5">
    <property name="text">
-    <string>UF_theme 1</string>
+    <string>&amp;UF_theme 1</string>
    </property>
   </action>
   <action name="actionGators_theme">

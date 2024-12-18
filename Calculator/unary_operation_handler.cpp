@@ -1,4 +1,5 @@
 #include "unary_operation_handler.h"
+#include <cmath>
 
 Unary_operation_handler::Unary_operation_handler()
 {

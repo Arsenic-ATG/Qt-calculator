@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "binary_operation_handler.h"
 #include <QApplication>
 #include <QGraphicsBlurEffect>
 int main(int argc, char *argv[])

@@ -22,7 +22,6 @@ SOURCES += \
 
 HEADERS += \
     binary_operation_handler.h \
-    binary_operation_handler.h \
     equals_handler.h \
     mainwindow.h \
     unary_operation_handler.h
