@@ -35,10 +35,13 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-
 *-Debug
-build-Calculator-Desktop_Qt_5_15_1_GCC_64bit-Debug
-*.user
+
+# Qt specific #
+###############
+
+build-Calculator-Desktop_*
+*.pro.user*
 
 # Emacs #
 #########

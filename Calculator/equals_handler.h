@@ -1,6 +1,5 @@
 #ifndef EQUALS_HANDLER_H
 #define EQUALS_HANDLER_H
-#include<iostream>
 #include "ui_mainwindow.h"
 
 class Equals_handler

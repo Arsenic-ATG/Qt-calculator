@@ -1,4 +1,5 @@
 #include "equals_handler.h"
+#include <cmath>
 
 Equals_handler::Equals_handler()
 {
@@ -19,7 +20,6 @@ QString Equals_handler::Equals_Button_triggered(double firstNum, double secondNu
         symbol = " ^ ";
 
     }
-
 
 
     else if(ui->pushButton_minus->isChecked())

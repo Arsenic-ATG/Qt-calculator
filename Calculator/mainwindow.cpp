@@ -6,7 +6,6 @@
 double firstNum;
 double secondNum;
 bool user_is_typing_secondNumber = false;
-
 QString input;
 
 // Constructor for MainWindow
@@ -52,8 +51,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 void MainWindow::connect_buttons(Ui::MainWindow *ui, MainWindow *window)
 {
     MainWindow::connect_digits(window);
-    MainWindow::connect_unary(ui, window);
-    MainWindow::connect_binary(ui, window);
+    MainWindow::connect_unary(window);
+    MainWindow::connect_binary(window);
     MainWindow::connect_special_digits(ui, window);
 }
 
@@ -68,7 +67,7 @@ void MainWindow::connect_digits(MainWindow *window)
 }
 
 // Function to connect unary operation buttons
-void MainWindow::connect_unary(Ui::MainWindow *ui, MainWindow *window)
+void MainWindow::connect_unary(MainWindow *window)
 {
     for (const auto &name : unary_buttonNames)
     {
@@ -78,7 +77,7 @@ void MainWindow::connect_unary(Ui::MainWindow *ui, MainWindow *window)
 }
 
 // Function to connect binary operation buttons
-void MainWindow::connect_binary(Ui::MainWindow *ui, MainWindow *window)
+void MainWindow::connect_binary(MainWindow *window)
 {
     for (const auto &name : binary_buttonNames)
     {
@@ -104,28 +103,32 @@ MainWindow::~MainWindow()
 void MainWindow::digit_pressed()
 {
     QPushButton *button = (QPushButton *)sender();
-    double labelnumber;
+    // TODO: for some weird reason the button->text() is "&N" where N is the actual number that we need here.
+    auto button_number = button->text()[1];
+    QString labelnumber;
 
-    if ((ui->pushButton_add->isChecked() || ui->pushButton_divide->isChecked() || ui->pushButton_minus->isChecked() || ui->pushButton_multiply->isChecked() || ui->pushButton_Power->isChecked() || ui->pushButton_squared->isChecked()) && (!user_is_typing_secondNumber))
+    // TODO: make this a function (some thing like is_binary_operation_button_checked() or store it as a flag somewhere which can be flipped when a binary operation is performed)
+    if ((!user_is_typing_secondNumber) &&
+        (ui->pushButton_add->isChecked() ||
+            ui->pushButton_divide->isChecked() ||
+            ui->pushButton_minus->isChecked() ||
+            ui->pushButton_multiply->isChecked() ||
+            ui->pushButton_Power->isChecked() ||
+            ui->pushButton_squared->isChecked()))
     {
         user_is_typing_secondNumber = true;
-        labelnumber = button->text().toDouble();
+        labelnumber = button_number;
     }
     else
     {
         ui->pushButton_equals->setEnabled(true);
-        if (ui->label->text().contains(".") && button->text() == "0")
-        {
-            input = ui->label->text() + button->text();
-        }
+        if (ui->label->text().contains(".") && button_number == "0")
+            input = ui->label->text() + button_number;
         else
-        {
-            labelnumber = (ui->label->text() + button->text()).toDouble();
-        }
+            labelnumber = ui->label->text() + button_number;
     }
-    input = QString::number(labelnumber, 'g', 15);
-    ui->label->setText(input);
-    secondNum = input.toDouble();
+    ui->label->setText(labelnumber);
+    secondNum = labelnumber.toDouble();
 }
 
 // Slot for dot button press
@@ -133,9 +136,7 @@ void MainWindow::on_pushButton_dot_released()
 {
     // Check for appearance of decimal, exit function if there is one
     if (ui->label->text().contains("."))
-    {
         return;
-    }
     ui->label->setText(ui->label->text() + ".");
 }
 
@@ -150,7 +151,7 @@ void MainWindow::on_pushButton_clear_released()
     ui->pushButton_Power->setChecked(false);
     ui->pushButton_squared->setChecked(false);
     user_is_typing_secondNumber = false;
-    ui->label->setText("0");
+    ui->label->setText("");
     // Updating the equation label
     ui->label_2->setText("0");
 }
@@ -190,13 +191,9 @@ void MainWindow::special_number_pressed()
         if (user_is_typing_secondNumber)
         {
             if (ui->label->text() == "0")
-            {
                 ui->label_2->setText("answer");
-            }
             else
-            {
                 ui->label_2->setText(ui->label_2->text() + "answer");
-            }
             ui->label->setText(QString::number(equal_handler.answer, 'g', 15));
         }
         else
@@ -272,10 +269,4 @@ Theme theme2("QComboBox {background-color: #EFEFEF;} QAbstractItemView{backgroun
 void MainWindow::on_actiontheme_1_triggered()
 {
     applyTheme(theme1);
-}
-
-// Slot for theme 2 action
-void MainWindow::on_actiontheme_2_triggered()
-{
-    applyTheme(theme2);
 }

@@ -4,7 +4,6 @@
 #define RAD 57.2957795
 #define PI 3.14159265358979323
 #define GRAD 63.661977237
-#include<string>
 #include<QString>
 #include "ui_mainwindow.h"
 class Unary_operation_handler
