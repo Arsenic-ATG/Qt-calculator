@@ -3,7 +3,7 @@
 Welcome to the Qt-calculator project!</br>
 As the name suggests, we build a calculator with variety of commonly used functions, interacted by GUI.</br>
 We use the Qt creator IDE to setup the project, due to its excellent internal build tools, especially for GUI. </br>
-The calculator can be used on all platforms(altough the GUI may differ on each platform).</br>
+The calculator can be used on all platforms(although the GUI may differ on each platform).</br>
 
 
 
@@ -19,7 +19,7 @@ The calculator can be used on all platforms(altough the GUI may differ on each p
 ## Contributing
 
 The calculator is evolving each day, and yet there are always new features to implement, code to optimize, or documentation to add.
-For this very reason, contributers(completely new ones or veterans) are more than welcome to make the changes.
+For this very reason, contributors(completely new ones or veterans) are more than welcome to make the changes.
 If you wish to contribute, please read [CONTRIBUTING.md](https://github.com/Arsenic-ATG/Qt-calculator/blob/master/CONTRIBUTING.md) for details on the code of conduct and process for submitting pull requests to the repository.
 
 ### Get it running 🏃‍♂️
@@ -33,7 +33,7 @@ If you wish to contribute, please read [CONTRIBUTING.md](https://github.com/Arse
 ### Publishing the changes 🔧
 Before making the needed changes , follow these instructions (if you are familiar with github and its source control functions, you can skip this explanation)
 1. Fork the repository(the button on the top-right of the page)
-1. Create a new branch on the created fork(meaningful branch names are importent)
+1. Create a new branch on the created fork(meaningful branch names are important)
 1. Make the needed changes on this branch
 1. Commit the changes to the branch.Right now they are saved on your local repository
     - make sure you summarize the changes you made , on the commit description
@@ -48,7 +48,7 @@ Before making the needed changes , follow these instructions (if you are familia
 ## screen shots 📸
 
 ```
-- As QT renderer tries to render native looking application, the GUI would look slightly different on different platoform
+- As QT renderer tries to render native looking application, the GUI would look slightly different on different platform
 ```
 
 <details>
