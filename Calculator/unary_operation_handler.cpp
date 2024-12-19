@@ -77,7 +77,7 @@ void Unary_operation_handler::Unary_operation_triggered(QPushButton* button,Ui::
     else{
     ui->label_2->setText(symbol+ "(" + QString::number(labelnumber)+ ")" + " = ");
     }
-    //ui->label->setText(input);
+    ui->label->setText(input);
 }
 
 

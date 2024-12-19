@@ -51,8 +51,6 @@ QString Equals_handler::Equals_Button_triggered(double firstNum, double secondNu
 
     else if(ui->pushButton_squared->isChecked())
     {
-
-
         labelnumber = (firstNum * firstNum);
         ui->pushButton_squared->setChecked(false);
         symbol = " x² ";

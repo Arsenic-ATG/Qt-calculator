@@ -103,8 +103,7 @@ MainWindow::~MainWindow()
 void MainWindow::digit_pressed()
 {
     QPushButton *button = (QPushButton *)sender();
-    // TODO: for some weird reason the button->text() is "&N" where N is the actual number that we need here.
-    auto button_number = button->text()[1];
+    auto button_number = button->text();
     QString labelnumber;
 
     // TODO: make this a function (some thing like is_binary_operation_button_checked() or store it as a flag somewhere which can be flipped when a binary operation is performed)
@@ -127,6 +126,10 @@ void MainWindow::digit_pressed()
         else
             labelnumber = ui->label->text() + button_number;
     }
+
+    // Remove trailing zeros in number
+    while (labelnumber.startsWith('0')) { labelnumber.remove(0,1); }
+
     ui->label->setText(labelnumber);
     secondNum = labelnumber.toDouble();
 }
@@ -143,7 +146,7 @@ void MainWindow::on_pushButton_dot_released()
 // Slot for clear button press
 void MainWindow::on_pushButton_clear_released()
 {
-    ui->Error_Label->setText("");
+    ui->Error_Label->setText("0");
     ui->pushButton_add->setChecked(false);
     ui->pushButton_minus->setChecked(false);
     ui->pushButton_multiply->setChecked(false);
